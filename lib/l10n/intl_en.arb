@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
 
-  "gameName": "Marble Game"
+  "gameName": "Marble Game",
+  "play": "Play",
+  "about": "About the app",
+  "music": "Music",
+  "sound": "Sound"
 }

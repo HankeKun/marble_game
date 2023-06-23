@@ -1,5 +1,9 @@
 {
   "@@locale": "de",
 
-  "gameName": "Murmelspiel"
+  "gameName": "Murmelspiel",
+  "play": "Spielen",
+  "about": "Über die App",
+  "music": "Musik",
+  "sound": "Sound"
 }

@@ -59,6 +59,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Play`
+  String get play {
+    return Intl.message(
+      'Play',
+      name: 'play',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About the app`
+  String get about {
+    return Intl.message(
+      'About the app',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Music`
+  String get music {
+    return Intl.message(
+      'Music',
+      name: 'music',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sound`
+  String get sound {
+    return Intl.message(
+      'Sound',
+      name: 'sound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
