@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:marble_game/service/database.dart';
+import 'package:marble_game/constants/global.dart';
 import 'package:marble_game/generated/l10n.dart';
-import 'package:marble_game/service/routing.dart';
+import 'package:marble_game/services/database.dart';
+import 'package:marble_game/services/routing.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routerConfig: Routing.router,
+        scaffoldMessengerKey: Global.snackbarKey,
         debugShowCheckedModeBanner: true,
       ),
     );

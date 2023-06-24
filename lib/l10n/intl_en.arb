@@ -1,9 +1,21 @@
 {
   "@@locale": "en",
 
+  "@_GENERAL": "",
   "gameName": "Marble Game",
   "play": "Play",
   "about": "About the app",
   "music": "Music",
-  "sound": "Sound"
+  "sound": "Sound",
+  "developer": "Developer",
+  "development": "Development",
+  "design": "Design",
+  "severin": "Severin Hanke (@HankeKun)",
+  "edonisa": "Edonisa Mahmuti (@Nissaaaaa)",
+  "description": "Description",
+  "descriptionText": "This game was created in Flutter with Flame.\nIt is part of a module for university.",
+
+  "@_ERROR": "",
+  "errorMusicChange": "Error while changing Musicbox. Please try again!",
+  "errorSoundChange": "Error while changing Soundbox. Please try again!"
 }

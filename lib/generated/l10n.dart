@@ -99,6 +99,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Developer`
+  String get developer {
+    return Intl.message(
+      'Developer',
+      name: 'developer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Development`
+  String get development {
+    return Intl.message(
+      'Development',
+      name: 'development',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Design`
+  String get design {
+    return Intl.message(
+      'Design',
+      name: 'design',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Severin Hanke (@HankeKun)`
+  String get severin {
+    return Intl.message(
+      'Severin Hanke (@HankeKun)',
+      name: 'severin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edonisa Mahmuti (@Nissaaaaa)`
+  String get edonisa {
+    return Intl.message(
+      'Edonisa Mahmuti (@Nissaaaaa)',
+      name: 'edonisa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This game was created in Flutter with Flame.\nIt is part of a module for university.`
+  String get descriptionText {
+    return Intl.message(
+      'This game was created in Flutter with Flame.\nIt is part of a module for university.',
+      name: 'descriptionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while changing Musicbox. Please try again!`
+  String get errorMusicChange {
+    return Intl.message(
+      'Error while changing Musicbox. Please try again!',
+      name: 'errorMusicChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while changing Soundbox. Please try again!`
+  String get errorSoundChange {
+    return Intl.message(
+      'Error while changing Soundbox. Please try again!',
+      name: 'errorSoundChange',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

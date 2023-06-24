@@ -23,9 +23,23 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About the app"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "descriptionText": MessageLookupByLibrary.simpleMessage(
+            "This game was created in Flutter with Flame.\nIt is part of a module for university."),
+        "design": MessageLookupByLibrary.simpleMessage("Design"),
+        "developer": MessageLookupByLibrary.simpleMessage("Developer"),
+        "development": MessageLookupByLibrary.simpleMessage("Development"),
+        "edonisa": MessageLookupByLibrary.simpleMessage(
+            "Edonisa Mahmuti (@Nissaaaaa)"),
+        "errorMusicChange": MessageLookupByLibrary.simpleMessage(
+            "Error while changing Musicbox. Please try again!"),
+        "errorSoundChange": MessageLookupByLibrary.simpleMessage(
+            "Error while changing Soundbox. Please try again!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
         "music": MessageLookupByLibrary.simpleMessage("Music"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
+        "severin":
+            MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")
       };
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marble_game/service/database.dart';
+import 'package:go_router/go_router.dart';
+import 'package:marble_game/constants/color_value.dart';
+import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/services/database.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _isMusicCheckboxWorking = false;
+  bool _isSoundCheckboxWorking = false;
+
   @override
   void initState() {
     super.initState();
@@ -18,10 +24,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final lang = S.of(context);
     Database database = context.watch();
 
     return Scaffold(
-      backgroundColor: const Color(0xffecd0ff),
+      backgroundColor: ColorValue.backgroundPurple,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -30,18 +37,21 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                S.of(context).gameName,
+                lang.gameName,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Colors.deepPurple),
                 maxLines: 1,
+                overflow: TextOverflow.fade,
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 16.0),
               Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(minWidth: 400),
                   child: ElevatedButton(
-                    child: Text(S.of(context).play.toUpperCase(), maxLines: 1),
-                    onPressed: () {},
+                    child: Text(lang.play.toUpperCase(), maxLines: 1, overflow: TextOverflow.fade),
+                    onPressed: () {
+                      // TODO: add game
+                    },
                   ),
                 ),
               ),
@@ -50,8 +60,10 @@ class _HomePageState extends State<HomePage> {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(minWidth: 250),
                   child: ElevatedButton(
-                    child: Text(S.of(context).about, maxLines: 1),
-                    onPressed: () {},
+                    child: Text(lang.about, maxLines: 1, overflow: TextOverflow.fade),
+                    onPressed: () {
+                      context.goNamed(RouteName.about);
+                    },
                   ),
                 ),
               ),
@@ -62,24 +74,34 @@ class _HomePageState extends State<HomePage> {
                   CheckboxMenuButton(
                     value: database.getMusicBool(),
                     onChanged: (_) async {
-                      await database.toggleMusicBool();
+                      if (!_isMusicCheckboxWorking) {
+                        _isMusicCheckboxWorking = true;
+                        await database.toggleMusicBool();
+                        _isMusicCheckboxWorking = false;
+                      }
                     },
                     child: Text(
-                      S.of(context).music,
+                      lang.music,
                       style: Theme.of(context).textTheme.bodyLarge,
                       maxLines: 1,
+                      overflow: TextOverflow.fade,
                     ),
                   ),
                   const SizedBox(width: 8.0),
                   CheckboxMenuButton(
                     value: database.getSoundBool(),
                     onChanged: (_) async {
-                      await database.toggleSoundBool();
+                      if (!_isSoundCheckboxWorking) {
+                        _isSoundCheckboxWorking = true;
+                        await database.toggleSoundBool();
+                        _isSoundCheckboxWorking = false;
+                      }
                     },
                     child: Text(
-                      S.of(context).sound,
+                      lang.sound,
                       style: Theme.of(context).textTheme.bodyLarge,
                       maxLines: 1,
+                      overflow: TextOverflow.fade,
                     ),
                   ),
                 ],
