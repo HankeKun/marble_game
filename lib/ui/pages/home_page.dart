@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                   child: ElevatedButton(
                     child: Text(lang.play.toUpperCase(), maxLines: 1, overflow: TextOverflow.fade),
                     onPressed: () {
-                      // TODO: add game
+                      context.goNamed(RouteName.levelSelection);
                     },
                   ),
                 ),
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CheckboxMenuButton(
-                    value: database.getMusicBool(),
+                    value: database.getMusicBool,
                     onChanged: (_) async {
                       if (!_isMusicCheckboxWorking) {
                         _isMusicCheckboxWorking = true;
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 8.0),
                   CheckboxMenuButton(
-                    value: database.getSoundBool(),
+                    value: database.getSoundBool,
                     onChanged: (_) async {
                       if (!_isSoundCheckboxWorking) {
                         _isSoundCheckboxWorking = true;

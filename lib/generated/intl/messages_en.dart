@@ -36,6 +36,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Soundbox. Please try again!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
+        "levelSelection":
+            MessageLookupByLibrary.simpleMessage("Level Selection"),
         "music": MessageLookupByLibrary.simpleMessage("Music"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
         "severin":

@@ -15,7 +15,6 @@ Future<void> main() async {
     DeviceOrientation.landscapeRight,
   ]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  await Future.delayed(const Duration(seconds: 5));
   runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
 }
 
@@ -45,6 +44,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+        ).copyWith(
+          highlightColor: const Color(0x33000000),
+          splashColor: const Color(0x19000000),
         ),
         routerConfig: Routing.router,
         scaffoldMessengerKey: Global.snackbarKey,

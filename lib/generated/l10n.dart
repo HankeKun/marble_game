@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `Level Selection`
+  String get levelSelection {
+    return Intl.message(
+      'Level Selection',
+      name: 'levelSelection',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error while changing Musicbox. Please try again!`
   String get errorMusicChange {
     return Intl.message(

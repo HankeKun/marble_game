@@ -1,4 +1,5 @@
 class RouteName {
-  static const homepage = '/';
-  static const about = 'about';
+  static const homepage = "/";
+  static const levelSelection = "level-selection";
+  static const about = "about";
 }

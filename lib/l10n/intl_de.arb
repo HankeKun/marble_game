@@ -14,6 +14,7 @@
   "edonisa": "Edonisa Mahmuti (@Nissaaaaa)",
   "description": "Beschreibung",
   "descriptionText": "Dieses Spiel wurde in Flutter mit Flame programmiert.\nEs ist Teil eines Moduls für die Uni.",
+  "levelSelection": "Levelauswahl",
 
   "@_ERROR": "",
   "errorMusicChange": "Fehler während der Musikboxänderung. Bitte versuche es erneut!",
