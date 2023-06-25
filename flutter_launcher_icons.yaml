@@ -1,0 +1,10 @@
+flutter_launcher_icons:
+  android: true
+  image_path_android: "assets/icons/marble_icon_android.png"
+  adaptive_icon_background: "#e1b3ff"
+  adaptive_icon_foreground: "assets/icons/marble_icon_android_foreground.png"
+  min_sdk_android: 21
+
+  ios: true
+  image_path_ios: "assets/icons/marble_icon_ios.png"
+  remove_alpha_ios: true

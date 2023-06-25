@@ -1,4 +1,4 @@
-package de.shcoding.marble_game.marble_game
+package de.shcoding.marbleGame
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -15,6 +15,7 @@ Future<void> main() async {
     DeviceOrientation.landscapeRight,
   ]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await Future.delayed(const Duration(seconds: 5));
   runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
 }
 
