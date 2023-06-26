@@ -6,8 +6,7 @@ import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/interrupt_game_dialog.dart';
 import 'package:marble_game/ui/components/pause_game_dialog.dart';
-import 'package:marble_game/ui/levels/level_1.dart';
-import 'package:marble_game/ui/levels/level_2.dart';
+import 'package:marble_game/ui/levels/level.dart';
 import 'package:marble_game/ui/pages/error_page.dart';
 
 class LevelPage extends StatelessWidget {
@@ -17,6 +16,8 @@ class LevelPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = S.of(context);
+
     try {
       return WillPopScope(
         onWillPop: () async {
@@ -28,8 +29,15 @@ class LevelPage extends StatelessWidget {
         },
         child: SafeArea(
           child: GameWidget(
-            game: _getGameByLevelNumber(),
-            backgroundBuilder: (context) => Container(color: ColorValue.background),
+            game: Level.getGameByLevelNumber(levelNumber),
+            loadingBuilder: (context) => Scaffold(
+              backgroundColor: ColorValue.background,
+              body: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+            backgroundBuilder: (context) => Scaffold(backgroundColor: ColorValue.background),
+            errorBuilder: (context, game) => ErrorPage(errorText: lang.errorLoadingLevel),
             overlayBuilderMap: {
               OverlayName.pauseButton: (context, game) => Padding(
                     padding: const EdgeInsets.all(4.0),
@@ -58,19 +66,6 @@ class LevelPage extends StatelessWidget {
       );
     } on UnimplementedError catch (e) {
       return ErrorPage(errorText: e.message!);
-    }
-  }
-
-  Game _getGameByLevelNumber() {
-    final lang = S.current;
-
-    switch (levelNumber) {
-      case 1:
-        return Level1();
-      case 2:
-        return Level2();
-      default:
-        throw UnimplementedError(lang.errorLevelDoesNotExist);
     }
   }
 }

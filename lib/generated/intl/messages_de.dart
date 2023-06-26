@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Fehler"),
         "errorLevelDoesNotExist":
             MessageLookupByLibrary.simpleMessage("Level existiert nicht."),
+        "errorLoadingLevel": MessageLookupByLibrary.simpleMessage(
+            "Es ist ein Fehler beim laden des Levels aufgetreten.\nBitte versuche es erneut."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
             "Fehler während der Musikboxänderung. Bitte versuche es erneut!"),
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(

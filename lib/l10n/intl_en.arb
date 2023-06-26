@@ -27,5 +27,6 @@
   "error": "Error",
   "errorMusicChange": "Error while changing Musicbox. Please try again!",
   "errorSoundChange": "Error while changing Soundbox. Please try again!",
-  "errorLevelDoesNotExist": "Level does not exist."
+  "errorLevelDoesNotExist": "Level does not exist.",
+  "errorLoadingLevel": "Error while loading the level.\nPlease try again."
 }

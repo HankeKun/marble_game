@@ -27,5 +27,6 @@
   "error": "Fehler",
   "errorMusicChange": "Fehler während der Musikboxänderung. Bitte versuche es erneut!",
   "errorSoundChange": "Fehler während der Soundboxänderung. Bitte versuche es erneut!",
-  "errorLevelDoesNotExist": "Level existiert nicht."
+  "errorLevelDoesNotExist": "Level existiert nicht.",
+  "errorLoadingLevel": "Es ist ein Fehler beim laden des Levels aufgetreten.\nBitte versuche es erneut."
 }

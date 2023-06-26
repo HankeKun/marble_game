@@ -289,6 +289,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Error while loading the level.\nPlease try again.`
+  String get errorLoadingLevel {
+    return Intl.message(
+      'Error while loading the level.\nPlease try again.',
+      name: 'errorLoadingLevel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

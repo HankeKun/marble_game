@@ -12,6 +12,7 @@ class ErrorPage extends StatelessWidget {
     final lang = S.of(context);
 
     return Scaffold(
+      backgroundColor: ColorValue.background,
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.deepPurple,
