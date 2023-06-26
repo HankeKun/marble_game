@@ -31,14 +31,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "development": MessageLookupByLibrary.simpleMessage("Entwicklung"),
         "edonisa": MessageLookupByLibrary.simpleMessage(
             "Edonisa Mahmuti (@Nissaaaaa)"),
+        "errorLevelDoesNotExist":
+            MessageLookupByLibrary.simpleMessage("Level existiert nicht."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
             "Fehler während der Musikboxänderung. Bitte versuche es erneut!"),
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Fehler während der Soundboxänderung. Bitte versuche es erneut!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Murmelspiel"),
+        "interrupt": MessageLookupByLibrary.simpleMessage("Abbrechen"),
+        "interruptGame":
+            MessageLookupByLibrary.simpleMessage("Spiel abbrechen"),
         "levelSelection": MessageLookupByLibrary.simpleMessage("Levelauswahl"),
         "music": MessageLookupByLibrary.simpleMessage("Musik"),
         "play": MessageLookupByLibrary.simpleMessage("Spielen"),
+        "playOn": MessageLookupByLibrary.simpleMessage("Weiterspielen"),
+        "progressNotSaved": MessageLookupByLibrary.simpleMessage(
+            "Fortschritt wird nicht gespeichert."),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")

@@ -15,8 +15,13 @@
   "description": "Description",
   "descriptionText": "This game was created in Flutter with Flame.\nIt is part of a module for university.",
   "levelSelection": "Level Selection",
+  "interrupt": "Interrupt",
+  "playOn": "Play on",
+  "interruptGame": "Interrupt game",
+  "progressNotSaved": "Progress will not be saved.",
 
   "@_ERROR": "",
   "errorMusicChange": "Error while changing Musicbox. Please try again!",
-  "errorSoundChange": "Error while changing Soundbox. Please try again!"
+  "errorSoundChange": "Error while changing Soundbox. Please try again!",
+  "errorLevelDoesNotExist": "Level does not exist."
 }

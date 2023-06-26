@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/ui/pages/about_page.dart';
 import 'package:marble_game/ui/pages/home_page.dart';
+import 'package:marble_game/ui/pages/level_page.dart';
 import 'package:marble_game/ui/pages/level_selection_page.dart';
 
 class Routing {
@@ -25,6 +26,16 @@ class Routing {
               key: state.pageKey,
               child: const LevelSelectionPage(),
             ),
+            routes: [
+              GoRoute(
+                path: RouteName.level,
+                name: RouteName.level,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: LevelPage(levelNumber: state.extra as int),
+                ),
+              ),
+            ],
           ),
           GoRoute(
             path: RouteName.about,

@@ -1,6 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
+import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -15,14 +16,7 @@ class LevelComponent extends StatelessWidget {
 
     return InkWell(
       borderRadius: BorderRadius.circular(12.0),
-      onTap: database.getActualLevel < levelNumber
-          ? null
-          : () {
-              // TODO: Add logic to start level i
-              if (kDebugMode) {
-                print("Pressed: $levelNumber");
-              }
-            },
+      onTap: database.getActualLevel < levelNumber ? null : () => context.goNamed(RouteName.level, extra: levelNumber),
       child: Ink(
         decoration: BoxDecoration(
           color: _getLevelColor(database.getActualLevel),

@@ -15,8 +15,13 @@
   "description": "Beschreibung",
   "descriptionText": "Dieses Spiel wurde in Flutter mit Flame programmiert.\nEs ist Teil eines Moduls für die Uni.",
   "levelSelection": "Levelauswahl",
+  "interrupt": "Abbrechen",
+  "playOn": "Weiterspielen",
+  "interruptGame": "Spiel abbrechen",
+  "progressNotSaved": "Fortschritt wird nicht gespeichert.",
 
   "@_ERROR": "",
   "errorMusicChange": "Fehler während der Musikboxänderung. Bitte versuche es erneut!",
-  "errorSoundChange": "Fehler während der Soundboxänderung. Bitte versuche es erneut!"
+  "errorSoundChange": "Fehler während der Soundboxänderung. Bitte versuche es erneut!",
+  "errorLevelDoesNotExist": "Level existiert nicht."
 }

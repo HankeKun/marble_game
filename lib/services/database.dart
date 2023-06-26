@@ -15,7 +15,6 @@ class Database with ChangeNotifier {
 
   bool get getMusicBool => _prefs.getBool(_music) ?? true;
 
-
   Future<void> toggleMusicBool() async {
     try {
       await _prefs.setBool(_music, !getMusicBool);

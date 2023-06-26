@@ -180,6 +180,46 @@ class S {
     );
   }
 
+  /// `Interrupt`
+  String get interrupt {
+    return Intl.message(
+      'Interrupt',
+      name: 'interrupt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Play on`
+  String get playOn {
+    return Intl.message(
+      'Play on',
+      name: 'playOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interrupt game`
+  String get interruptGame {
+    return Intl.message(
+      'Interrupt game',
+      name: 'interruptGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Progress will not be saved.`
+  String get progressNotSaved {
+    return Intl.message(
+      'Progress will not be saved.',
+      name: 'progressNotSaved',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error while changing Musicbox. Please try again!`
   String get errorMusicChange {
     return Intl.message(
@@ -195,6 +235,16 @@ class S {
     return Intl.message(
       'Error while changing Soundbox. Please try again!',
       name: 'errorSoundChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Level does not exist.`
+  String get errorLevelDoesNotExist {
+    return Intl.message(
+      'Level does not exist.',
+      name: 'errorLevelDoesNotExist',
       desc: '',
       args: [],
     );

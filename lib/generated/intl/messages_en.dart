@@ -31,15 +31,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "development": MessageLookupByLibrary.simpleMessage("Development"),
         "edonisa": MessageLookupByLibrary.simpleMessage(
             "Edonisa Mahmuti (@Nissaaaaa)"),
+        "errorLevelDoesNotExist":
+            MessageLookupByLibrary.simpleMessage("Level does not exist."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Musicbox. Please try again!"),
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Soundbox. Please try again!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
+        "interrupt": MessageLookupByLibrary.simpleMessage("Interrupt"),
+        "interruptGame": MessageLookupByLibrary.simpleMessage("Interrupt game"),
         "levelSelection":
             MessageLookupByLibrary.simpleMessage("Level Selection"),
         "music": MessageLookupByLibrary.simpleMessage("Music"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
+        "playOn": MessageLookupByLibrary.simpleMessage("Play on"),
+        "progressNotSaved":
+            MessageLookupByLibrary.simpleMessage("Progress will not be saved."),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")
