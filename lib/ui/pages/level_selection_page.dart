@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/level_component.dart';
+import 'package:marble_game/ui/levels/level.dart';
 
 class LevelSelectionPage extends StatefulWidget {
   const LevelSelectionPage({super.key});
@@ -41,7 +42,7 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
                     spacing: 8.0,
                     runSpacing: 8.0,
                     children: [
-                      for (int i = 1; i <= 2; i++) LevelComponent(levelNumber: i),
+                      for (int i = 1; i <= Level.actualNumberOfLevel; i++) LevelComponent(levelNumber: i),
                     ],
                   ),
                 ),
