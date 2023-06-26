@@ -1,8 +1,9 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class ColorValue {
-  static Color appBarPurple = const Color(0xffe1b3ff);
-  static Color backgroundPurple = const Color(0xffecd0ff);
+  static Color appBar = const Color(0xffe1b3ff);
+  static Color background = const Color(0xffecd0ff);
+  static Color lockSymbol = Colors.deepPurple.shade300;
 
   static Color completedLevel = const Color(0xff32cd32);
   static Color actualLevel = const Color(0xffe1b3ff);

@@ -9,8 +9,9 @@ class InterruptGameDialog extends StatelessWidget {
     final lang = S.of(context);
 
     return AlertDialog(
-      title: Text(lang.interruptGame, style: const TextStyle(color: Colors.deepPurple)),
+      title: Text(lang.interruptedGame, style: const TextStyle(color: Colors.deepPurple)),
       content: Text(lang.progressNotSaved, style: const TextStyle(color: Colors.deepPurple)),
+      actionsAlignment: MainAxisAlignment.spaceBetween,
       actions: [
         ElevatedButton(
           onPressed: () => Navigator.pop(context, true),

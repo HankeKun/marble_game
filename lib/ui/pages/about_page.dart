@@ -15,7 +15,7 @@ class _AboutPageState extends State<AboutPage> {
     final lang = S.of(context);
 
     return Scaffold(
-      backgroundColor: ColorValue.backgroundPurple,
+      backgroundColor: ColorValue.background,
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.deepPurple,
@@ -27,7 +27,7 @@ class _AboutPageState extends State<AboutPage> {
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
-        backgroundColor: ColorValue.appBarPurple,
+        backgroundColor: ColorValue.appBar,
       ),
       body: SafeArea(
         child: CustomScrollView(

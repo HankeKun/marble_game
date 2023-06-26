@@ -3,8 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/generated/l10n.dart';
-import 'package:marble_game/services/database.dart';
-import 'package:provider/provider.dart';
+import 'package:marble_game/ui/components/sound_checkbox_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,21 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isMusicCheckboxWorking = false;
-  bool _isSoundCheckboxWorking = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
-    Database database = context.watch();
 
     return Scaffold(
-      backgroundColor: ColorValue.backgroundPurple,
+      backgroundColor: ColorValue.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -68,44 +58,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 8.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CheckboxMenuButton(
-                    value: database.getMusicBool,
-                    onChanged: (_) async {
-                      if (!_isMusicCheckboxWorking) {
-                        _isMusicCheckboxWorking = true;
-                        await database.toggleMusicBool();
-                        _isMusicCheckboxWorking = false;
-                      }
-                    },
-                    child: Text(
-                      lang.music,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      maxLines: 1,
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                  const SizedBox(width: 8.0),
-                  CheckboxMenuButton(
-                    value: database.getSoundBool,
-                    onChanged: (_) async {
-                      if (!_isSoundCheckboxWorking) {
-                        _isSoundCheckboxWorking = true;
-                        await database.toggleSoundBool();
-                        _isSoundCheckboxWorking = false;
-                      }
-                    },
-                    child: Text(
-                      lang.sound,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      maxLines: 1,
-                      overflow: TextOverflow.fade,
-                    ),
-                  ),
-                ],
-              ),
+              const SoundCheckboxComponent(),
             ],
           ),
         ),

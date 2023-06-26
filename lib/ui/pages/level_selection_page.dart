@@ -16,7 +16,7 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
     final lang = S.of(context);
 
     return Scaffold(
-      backgroundColor: ColorValue.backgroundPurple,
+      backgroundColor: ColorValue.background,
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.deepPurple,
@@ -28,7 +28,7 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
-        backgroundColor: ColorValue.appBarPurple,
+        backgroundColor: ColorValue.appBar,
       ),
       body: SafeArea(
         child: CustomScrollView(
@@ -41,7 +41,7 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
                     spacing: 8.0,
                     runSpacing: 8.0,
                     children: [
-                      for (int i = 1; i <= 100; i++) LevelComponent(levelNumber: i),
+                      for (int i = 1; i <= 2; i++) LevelComponent(levelNumber: i),
                     ],
                   ),
                 ),

@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "development": MessageLookupByLibrary.simpleMessage("Entwicklung"),
         "edonisa": MessageLookupByLibrary.simpleMessage(
             "Edonisa Mahmuti (@Nissaaaaa)"),
+        "error": MessageLookupByLibrary.simpleMessage("Fehler"),
         "errorLevelDoesNotExist":
             MessageLookupByLibrary.simpleMessage("Level existiert nicht."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
@@ -41,8 +42,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "interrupt": MessageLookupByLibrary.simpleMessage("Abbrechen"),
         "interruptGame":
             MessageLookupByLibrary.simpleMessage("Spiel abbrechen"),
+        "interruptGameNotSaved": MessageLookupByLibrary.simpleMessage(
+            "Der Fortschritt eines abgebrochenen Spiels wird nicht gespeichert."),
+        "interruptedGame":
+            MessageLookupByLibrary.simpleMessage("Unterbrochenes Spiel"),
         "levelSelection": MessageLookupByLibrary.simpleMessage("Levelauswahl"),
         "music": MessageLookupByLibrary.simpleMessage("Musik"),
+        "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Spielen"),
         "playOn": MessageLookupByLibrary.simpleMessage("Weiterspielen"),
         "progressNotSaved": MessageLookupByLibrary.simpleMessage(

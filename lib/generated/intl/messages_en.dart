@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "development": MessageLookupByLibrary.simpleMessage("Development"),
         "edonisa": MessageLookupByLibrary.simpleMessage(
             "Edonisa Mahmuti (@Nissaaaaa)"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "errorLevelDoesNotExist":
             MessageLookupByLibrary.simpleMessage("Level does not exist."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
@@ -40,9 +41,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
         "interrupt": MessageLookupByLibrary.simpleMessage("Interrupt"),
         "interruptGame": MessageLookupByLibrary.simpleMessage("Interrupt game"),
+        "interruptGameNotSaved": MessageLookupByLibrary.simpleMessage(
+            "The progress of an interrupted game will not be saved."),
+        "interruptedGame":
+            MessageLookupByLibrary.simpleMessage("Game interrupted"),
         "levelSelection":
             MessageLookupByLibrary.simpleMessage("Level Selection"),
         "music": MessageLookupByLibrary.simpleMessage("Music"),
+        "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
         "playOn": MessageLookupByLibrary.simpleMessage("Play on"),
         "progressNotSaved":

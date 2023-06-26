@@ -28,14 +28,32 @@ class LevelComponent extends StatelessWidget {
         ),
         width: 100,
         height: 100,
-        child: Center(
-          child: Text(
-            levelNumber.toString(),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.deepPurple),
-            maxLines: 1,
-            overflow: TextOverflow.fade,
-          ),
+        child: Stack(
+          children: [
+            Center(
+              child: Text(
+                levelNumber.toString(),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.deepPurple),
+                maxLines: 1,
+                overflow: TextOverflow.fade,
+              ),
+            ),
+            if (database.getActualLevel < levelNumber)
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(6.0),
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.lock,
+                    size: 48.0,
+                    color: ColorValue.lockSymbol,
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

@@ -180,21 +180,31 @@ class S {
     );
   }
 
-  /// `Interrupt`
-  String get interrupt {
-    return Intl.message(
-      'Interrupt',
-      name: 'interrupt',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Play on`
   String get playOn {
     return Intl.message(
       'Play on',
       name: 'playOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pause`
+  String get pause {
+    return Intl.message(
+      'Pause',
+      name: 'pause',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interrupt`
+  String get interrupt {
+    return Intl.message(
+      'Interrupt',
+      name: 'interrupt',
       desc: '',
       args: [],
     );
@@ -210,11 +220,41 @@ class S {
     );
   }
 
+  /// `Game interrupted`
+  String get interruptedGame {
+    return Intl.message(
+      'Game interrupted',
+      name: 'interruptedGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The progress of an interrupted game will not be saved.`
+  String get interruptGameNotSaved {
+    return Intl.message(
+      'The progress of an interrupted game will not be saved.',
+      name: 'interruptGameNotSaved',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Progress will not be saved.`
   String get progressNotSaved {
     return Intl.message(
       'Progress will not be saved.',
       name: 'progressNotSaved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
       desc: '',
       args: [],
     );
