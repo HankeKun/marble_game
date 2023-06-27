@@ -30,8 +30,10 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
         ),
         centerTitle: true,
         backgroundColor: ColorValue.appBar,
+        scrolledUnderElevation: 0.0,
       ),
       body: SafeArea(
+        bottom: false,
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(

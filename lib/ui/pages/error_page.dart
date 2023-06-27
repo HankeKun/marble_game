@@ -25,8 +25,10 @@ class ErrorPage extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: ColorValue.appBar,
+        scrolledUnderElevation: 0.0,
       ),
       body: SafeArea(
+        bottom: false,
         child: Center(
           child: Text(
             errorText,

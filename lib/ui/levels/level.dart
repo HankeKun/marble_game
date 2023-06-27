@@ -4,7 +4,7 @@ import 'package:marble_game/ui/levels/level_1.dart';
 import 'package:marble_game/ui/levels/level_2.dart';
 
 class Level {
-  static int actualNumberOfLevel = 2;
+  static int actualNumberOfLevel = 92;
 
   static Game getGameByLevelNumber(int levelNumber) {
     final lang = S.current;

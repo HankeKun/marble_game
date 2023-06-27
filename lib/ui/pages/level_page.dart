@@ -27,40 +27,39 @@ class LevelPage extends StatelessWidget {
             barrierDismissible: false,
           );
         },
-        child: SafeArea(
-          child: GameWidget(
-            game: Level.getGameByLevelNumber(levelNumber),
-            loadingBuilder: (context) => Scaffold(
-              backgroundColor: ColorValue.background,
-              body: const Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
-            backgroundBuilder: (context) => Scaffold(backgroundColor: ColorValue.background),
-            errorBuilder: (context, game) => ErrorPage(errorText: lang.errorLoadingLevel),
-            overlayBuilderMap: {
-              OverlayName.pauseButton: (context, game) => Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: IconButton(
-                      icon: const Icon(Icons.pause),
-                      onPressed: () async {
-                        (game as Game).pauseEngine();
-                        final shouldLeave = await showDialog(
-                          context: context,
-                          builder: (context) => const PauseGameDialog(),
-                          barrierDismissible: false,
-                        );
-                        if (shouldLeave && context.mounted) {
-                          context.pop();
-                        }
-                        game.resumeEngine();
-                      },
+        child: Scaffold(
+          backgroundColor: ColorValue.background,
+          body: SafeArea(
+            bottom: false,
+            child: GameWidget(
+              game: Level.getGameByLevelNumber(levelNumber),
+              loadingBuilder: (context) => const Center(child: CircularProgressIndicator()),
+              backgroundBuilder: (context) => Container(color: ColorValue.background),
+              errorBuilder: (context, game) => ErrorPage(errorText: lang.errorLoadingLevel),
+              overlayBuilderMap: {
+                OverlayName.pauseButton: (context, game) => Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: IconButton(
+                        icon: const Icon(Icons.pause),
+                        onPressed: () async {
+                          (game as Game).pauseEngine();
+                          final shouldLeave = await showDialog(
+                            context: context,
+                            builder: (context) => const PauseGameDialog(),
+                            barrierDismissible: false,
+                          );
+                          if (shouldLeave && context.mounted) {
+                            context.pop();
+                          }
+                          game.resumeEngine();
+                        },
+                      ),
                     ),
-                  ),
-            },
-            initialActiveOverlays: const [
-              OverlayName.pauseButton,
-            ],
+              },
+              initialActiveOverlays: const [
+                OverlayName.pauseButton,
+              ],
+            ),
           ),
         ),
       );

@@ -28,8 +28,10 @@ class _AboutPageState extends State<AboutPage> {
         ),
         centerTitle: true,
         backgroundColor: ColorValue.appBar,
+        scrolledUnderElevation: 0.0,
       ),
       body: SafeArea(
+        bottom: false,
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
