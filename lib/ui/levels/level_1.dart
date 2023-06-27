@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'package:flame/palette.dart';
+import 'package:marble_game/ui/game_components/ball_component.dart';
+import 'package:marble_game/ui/game_components/border_component.dart';
 
 class Level1 extends FlameGame {
   @override
@@ -11,11 +11,10 @@ class Level1 extends FlameGame {
     // throw Exception();
     // await Future.delayed(const Duration(seconds: 3));
     await addAll([
-      RectangleComponent(size: Vector2(5, size.y), position: Vector2(0, 0), paint: BasicPalette.brown.paint()),
-      RectangleComponent(size: Vector2(size.x, 5), position: Vector2(0, 0), paint: BasicPalette.brown.paint()),
-      RectangleComponent(size: Vector2(5, size.y), position: size, anchor: Anchor.bottomRight, paint: BasicPalette.brown.paint()),
-      RectangleComponent(size: Vector2(size.x, 5), position: size, anchor: Anchor.bottomRight, paint: BasicPalette.brown.paint()),
-      CircleComponent(radius: 25, anchor: Anchor.center, position: size / 2),
+      // BorderComponent(),
+      BallComponent(
+        startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
+      ),
     ]);
   }
 }
