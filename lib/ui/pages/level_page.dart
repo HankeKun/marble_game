@@ -9,35 +9,56 @@ import 'package:marble_game/ui/components/pause_game_dialog.dart';
 import 'package:marble_game/ui/levels/level.dart';
 import 'package:marble_game/ui/pages/error_page.dart';
 
-class LevelPage extends StatelessWidget {
+class LevelPage extends StatefulWidget {
   const LevelPage({super.key, required this.levelNumber});
 
   final int levelNumber;
+
+  @override
+  State<LevelPage> createState() => _LevelPageState();
+}
+
+class _LevelPageState extends State<LevelPage> {
+  late Game level;
+
+  @override
+  void initState() {
+    super.initState();
+    level = Level.getGameByLevelNumber(widget.levelNumber);
+  }
 
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
 
     try {
-      return WillPopScope(
-        onWillPop: () async {
-          return await showDialog(
-            context: context,
-            builder: (context) => const InterruptGameDialog(),
-            barrierDismissible: false,
-          );
-        },
-        child: Scaffold(
-          backgroundColor: ColorValue.background,
-          body: SafeArea(
-            bottom: false,
-            child: GameWidget(
-              game: Level.getGameByLevelNumber(levelNumber),
-              loadingBuilder: (context) => const Center(child: CircularProgressIndicator()),
-              backgroundBuilder: (context) => Container(color: ColorValue.background),
-              errorBuilder: (context, game) => ErrorPage(errorText: lang.errorLoadingLevel),
-              overlayBuilderMap: {
-                OverlayName.pauseButton: (context, game) => Padding(
+      return Scaffold(
+        backgroundColor: ColorValue.background,
+        body: SafeArea(
+          bottom: false,
+          child: GameWidget(
+            game: level,
+            loadingBuilder: (context) => Container(
+              color: ColorValue.background,
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+            backgroundBuilder: (context) => Container(color: ColorValue.background),
+            errorBuilder: (context, game) => ErrorPage(errorText: lang.errorLoadingLevel),
+            overlayBuilderMap: {
+              OverlayName.pauseButton: (context, game) => WillPopScope(
+                    onWillPop: () async {
+                      (game as Game).pauseEngine();
+                      final value = await showDialog(
+                        context: context,
+                        builder: (context) => const InterruptGameDialog(),
+                        barrierDismissible: false,
+                      );
+                      game.resumeEngine();
+                      return value;
+                    },
+                    child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: IconButton(
                         icon: const Icon(Icons.pause),
@@ -55,11 +76,11 @@ class LevelPage extends StatelessWidget {
                         },
                       ),
                     ),
-              },
-              initialActiveOverlays: const [
-                OverlayName.pauseButton,
-              ],
-            ),
+                  ),
+            },
+            initialActiveOverlays: const [
+              OverlayName.pauseButton,
+            ],
           ),
         ),
       );
