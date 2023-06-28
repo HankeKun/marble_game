@@ -39,7 +39,10 @@ class BallComponent extends CircleComponent
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
     if (other is BorderComponent) {
-      print('COLLISION');
+      print('COLLISION Border');
+    }
+    if (other is RectangleComponent) {
+      print('COLLISION Rectangle');
     }
   }
 }
