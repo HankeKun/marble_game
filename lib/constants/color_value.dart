@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorValue {
+  ColorValue._();
+
   static Color appBar = const Color(0xffe1b3ff);
   static Color background = const Color(0xffecd0ff);
   static Color lockSymbol = Colors.deepPurple.shade300;

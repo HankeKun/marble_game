@@ -4,10 +4,9 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:marble_game/ui/game_components/border_component.dart';
+import 'package:marble_game/ui/game_components/wall_component.dart';
 
-class BallComponent extends CircleComponent
-    with HasGameRef, CollisionCallbacks {
-
+class BallComponent extends CircleComponent with HasGameRef, CollisionCallbacks {
   Vector2 startPosition;
 
   BallComponent({required this.startPosition})
@@ -31,18 +30,18 @@ class BallComponent extends CircleComponent
       position.x += 2;
     }
     if (position.y - radius > 0 && position.y + radius < gameRef.size.y) {
-      position.y += 0;
+      position.y -= 0;
     }
   }
 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
+    if (other is WallComponent) {
+      print('COLLISION Wall');
+    }
     if (other is BorderComponent) {
       print('COLLISION Border');
-    }
-    if (other is RectangleComponent) {
-      print('COLLISION Rectangle');
     }
   }
 }
