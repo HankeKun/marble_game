@@ -1,15 +1,20 @@
 import 'dart:async';
 
-import 'package:flame/collisions.dart';
+import 'package:flame/camera.dart' as cam;
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
+import 'package:flame_forge2d/forge2d_game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
 import 'package:marble_game/ui/game_components/border_component.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
 
-class Level1 extends FlameGame with HasCollisionDetection {
+class Level1 extends Forge2DGame with HasCollisionDetection {
+  final _cameraWorld = cam.World();
+  late final CameraComponent _cameraComponent;
+
+  Level1() : super(zoom: 1.0);
+
   @override
   bool get debugMode => kDebugMode;
 
@@ -17,8 +22,12 @@ class Level1 extends FlameGame with HasCollisionDetection {
   Future onLoad() async {
     await super.onLoad();
     // throw Exception();
-    // await Future.delayed(const Duration(seconds: 3));
-    await addAll([
+    _cameraComponent = CameraComponent(world: _cameraWorld);
+    _cameraComponent.viewfinder.anchor = Anchor.topLeft;
+
+    await addAll([_cameraComponent, _cameraWorld]);
+
+    await _cameraWorld.addAll([
       BorderComponent(),
       GoalComponent(
         position: Vector2(size.x - size.y * 0.11, size.y * 0.11),
@@ -27,14 +36,14 @@ class Level1 extends FlameGame with HasCollisionDetection {
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
       ),
       WallComponent(
-        anchor: Anchor.topCenter,
-        position: Vector2(size.x / 2, 0),
-        size: Vector2(size.x * 0.05, size.y * 0.4),
+        Anchor.topCenter,
+        Vector2(size.x / 2, 0),
+        Vector2(size.x * 0.05, size.y * 0.4),
       ),
       WallComponent(
-        anchor: Anchor.bottomCenter,
-        position: Vector2(size.x / 2, size.y),
-        size: Vector2(size.x * 0.05, size.y * 0.4),
+        Anchor.bottomCenter,
+        Vector2(size.x / 2, size.y),
+        Vector2(size.x * 0.05, size.y * 0.4),
       ),
     ]);
   }

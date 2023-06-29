@@ -4,7 +4,6 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:marble_game/ui/game_components/border_component.dart';
-import 'package:marble_game/ui/game_components/wall_component.dart';
 
 class BallComponent extends CircleComponent with HasGameRef, CollisionCallbacks {
   Vector2 startPosition;
@@ -37,9 +36,6 @@ class BallComponent extends CircleComponent with HasGameRef, CollisionCallbacks 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
-    if (other is WallComponent) {
-      print('COLLISION Wall');
-    }
     if (other is BorderComponent) {
       print('COLLISION Border');
     }

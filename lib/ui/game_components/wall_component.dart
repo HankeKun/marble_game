@@ -1,33 +1,40 @@
 import 'dart:ui';
 
-import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
+import 'package:flame_forge2d/flame_forge2d.dart';
 
-class WallComponent extends RectangleComponent with CollisionCallbacks {
-  WallComponent({
-    Anchor? anchor,
-    double? angle,
+class WallComponent extends BodyComponent {
+  Anchor? anchor;
+  Vector2? position;
+  Vector2? size;
+
+  WallComponent(
+    this.anchor,
+    this.position,
+    this.size, {
     Iterable<Component>? children,
-    List<Paint>? paintLayers,
     Paint? color,
-    Vector2? position,
     int? priority,
-    Vector2? size,
+    bool? renderBody,
   }) : super(
-          anchor: anchor,
-          angle: angle,
           children: children,
           paint: color ?? BasicPalette.brown.paint(),
-          paintLayers: paintLayers,
-          position: position,
           priority: priority,
-          size: size,
+          renderBody: renderBody ?? true,
         );
 
   @override
-  Future<void> onLoad() async {
-    await super.onLoad();
-    await add(RectangleHitbox());
+  Body createBody() {
+    final shape = EdgeShape()/*..set(v1, v2)*/;
+
+    final fixtureDef = FixtureDef(shape);
+
+    final bodyDef = BodyDef(
+      userData: this,
+      position: position,
+    );
+
+    return world.createBody(bodyDef)..createFixture(fixtureDef);
   }
 }
