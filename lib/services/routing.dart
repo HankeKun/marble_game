@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/route_name.dart';
@@ -9,7 +10,7 @@ import 'package:marble_game/ui/pages/level_selection_page.dart';
 class Routing {
   static final router = GoRouter(
     initialLocation: RouteName.homepage,
-    debugLogDiagnostics: true,
+    debugLogDiagnostics: kDebugMode,
     routes: [
       GoRoute(
         path: RouteName.homepage,

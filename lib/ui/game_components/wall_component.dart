@@ -5,34 +5,36 @@ import 'package:flame/palette.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 
 class WallComponent extends BodyComponent {
-  Anchor? anchor;
-  Vector2? position;
-  Vector2? size;
+  double halfXSize;
+  double halfYSize;
+  Vector2 centerOfWall;
+  double angleOfWall;
 
-  WallComponent(
-    this.anchor,
-    this.position,
-    this.size, {
+  WallComponent({
+    required this.halfXSize,
+    required this.halfYSize,
+    required this.centerOfWall,
+    required this.angleOfWall,
     Iterable<Component>? children,
     Paint? color,
     int? priority,
-    bool? renderBody,
   }) : super(
           children: children,
           paint: color ?? BasicPalette.brown.paint(),
           priority: priority,
-          renderBody: renderBody ?? true,
         );
 
   @override
   Body createBody() {
-    final shape = EdgeShape()/*..set(v1, v2)*/;
+    final shape = PolygonShape()..setAsBox(halfXSize, halfYSize, centerOfWall, angleOfWall);
 
-    final fixtureDef = FixtureDef(shape);
+    final fixtureDef = FixtureDef(
+      shape,
+      density: 2000.0,
+    );
 
     final bodyDef = BodyDef(
       userData: this,
-      position: position,
     );
 
     return world.createBody(bodyDef)..createFixture(fixtureDef);
