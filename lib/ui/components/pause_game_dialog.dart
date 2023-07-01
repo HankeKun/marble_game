@@ -3,14 +3,9 @@ import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/sound_checkbox_component.dart';
 
-class PauseGameDialog extends StatefulWidget {
+class PauseGameDialog extends StatelessWidget {
   const PauseGameDialog({super.key});
 
-  @override
-  State<PauseGameDialog> createState() => _PauseGameDialogState();
-}
-
-class _PauseGameDialogState extends State<PauseGameDialog> {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);

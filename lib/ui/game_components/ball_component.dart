@@ -3,8 +3,8 @@ import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 class BallComponent extends BodyComponent {
-  late final double _radius = gameRef.size.y * 0.06;
   late final Vector2 _acceleration = Vector2.zero();
+  late final double radius = gameRef.size.y * 0.06;
   Vector2 startPosition;
 
   BallComponent({required this.startPosition})
@@ -14,7 +14,7 @@ class BallComponent extends BodyComponent {
 
   @override
   Body createBody() {
-    final shape = CircleShape()..radius = _radius;
+    final shape = CircleShape()..radius = radius;
 
     final fixtureDef = FixtureDef(
       shape,

@@ -22,6 +22,9 @@
   "interruptedGame": "Game interrupted",
   "interruptGameNotSaved": "The progress of an interrupted game will not be saved.",
   "progressNotSaved": "Progress will not be saved.",
+  "completedLevel": "Level completed!",
+  "nextLevel": "Next level",
+  "back": "Back",
 
   "@_ERROR": "",
   "error": "Error",

@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Über die App"),
+        "back": MessageLookupByLibrary.simpleMessage("Zurück"),
+        "completedLevel":
+            MessageLookupByLibrary.simpleMessage("Level geschafft!"),
         "description": MessageLookupByLibrary.simpleMessage("Beschreibung"),
         "descriptionText": MessageLookupByLibrary.simpleMessage(
             "Dieses Spiel wurde in Flutter mit Flame programmiert.\nEs ist Teil eines Moduls für die Uni."),
@@ -50,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Unterbrochenes Spiel"),
         "levelSelection": MessageLookupByLibrary.simpleMessage("Levelauswahl"),
         "music": MessageLookupByLibrary.simpleMessage("Musik"),
+        "nextLevel": MessageLookupByLibrary.simpleMessage("Nächstes Level"),
         "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Spielen"),
         "playOn": MessageLookupByLibrary.simpleMessage("Weiterspielen"),

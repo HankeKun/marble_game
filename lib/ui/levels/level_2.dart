@@ -1,15 +1,20 @@
-import 'dart:ui';
-
 import 'package:flame/game.dart';
+import 'package:marble_game/ui/game_components/ball_component.dart';
+import 'package:marble_game/ui/game_components/goal_component.dart';
+import 'package:marble_game/ui/levels/level.dart';
 
-class Level2 extends Game {
+class Level2 extends Level {
   @override
-  void render(Canvas canvas) {
-    // TODO: implement render
-  }
+  Future onLoad() async {
+    await super.onLoad();
 
-  @override
-  void update(double dt) {
-    // TODO: implement update
+    await cameraWorld.addAll([
+      GoalComponent(
+        position: Vector2(size.x - size.y * 0.11, size.y * 0.11),
+      ),
+      BallComponent(
+        startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
+      ),
+    ]);
   }
 }

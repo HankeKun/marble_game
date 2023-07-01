@@ -14,6 +14,8 @@ class Level1 extends Level {
     await cameraWorld.addAll([
       GoalComponent(
         position: Vector2(size.x - size.y * 0.11, size.y * 0.11),
+        // Test:
+        // position: Vector2(size.y * 0.09, size.y - size.y * 0.14),
       ),
       BallComponent(
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),

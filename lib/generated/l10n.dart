@@ -250,6 +250,36 @@ class S {
     );
   }
 
+  /// `Level completed!`
+  String get completedLevel {
+    return Intl.message(
+      'Level completed!',
+      name: 'completedLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next level`
+  String get nextLevel {
+    return Intl.message(
+      'Next level',
+      name: 'nextLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error`
   String get error {
     return Intl.message(
