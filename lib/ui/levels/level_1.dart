@@ -1,29 +1,17 @@
 import 'dart:async';
 
-import 'package:flame/camera.dart' as cam;
 import 'package:flame/components.dart';
-import 'package:flame_forge2d/forge2d_game.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
-import 'package:marble_game/ui/game_components/border.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
+import 'package:marble_game/ui/levels/level.dart';
 
-class Level1 extends Forge2DGame with HasCollisionDetection {
-  final _cameraWorld = cam.World();
-  late final CameraComponent _cameraComponent;
-
-  Level1() : super(gravity: Vector2(0, 0));
-
+class Level1 extends Level {
   @override
   Future onLoad() async {
     await super.onLoad();
-    _cameraComponent = CameraComponent(world: _cameraWorld);
-    _cameraComponent.viewfinder.anchor = Anchor.topLeft;
 
-    await addAll([_cameraComponent, _cameraWorld]);
-
-    await _cameraWorld.addAll([
-      ...createBorder(game: this),
+    await cameraWorld.addAll([
       GoalComponent(
         position: Vector2(size.x - size.y * 0.11, size.y * 0.11),
       ),
