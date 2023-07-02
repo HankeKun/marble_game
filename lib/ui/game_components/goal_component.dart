@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flame/palette.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
-import 'package:flutter/material.dart';
+import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
 
 class GoalComponent extends BodyComponent with ContactCallbacks {
@@ -55,7 +55,8 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
     super.update(dt);
     if(_contactToBall && isBallFullyInsideGoal()) {
       _ballComponent.removeFromParent();
-      // TODO: show Dialog
+      gameRef.overlays.add(OverlayName.levelCompleted);
+      gameRef.overlays.remove(OverlayName.pauseButton);
     }
   }
 
@@ -65,6 +66,6 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
 
     final distance = sqrt(pow(differenceX, 2) + pow(differenceY, 2)) + _ballComponent.radius;
 
-    return distance <= _radius;
+    return distance <= _radius + gameRef.size.y * 0.005;
   }
 }

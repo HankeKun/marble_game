@@ -9,7 +9,11 @@ class LevelCompletedDialog extends StatelessWidget {
     final lang = S.of(context);
 
     return AlertDialog(
-      title: Text(lang.completedLevel, style: const TextStyle(color: Colors.deepPurple)),
+      title: Text(
+        lang.completedLevel,
+        textAlign: TextAlign.center,
+        style: const TextStyle(color: Colors.deepPurple),
+      ),
       actionsAlignment: MainAxisAlignment.spaceBetween,
       actions: [
         ElevatedButton(
