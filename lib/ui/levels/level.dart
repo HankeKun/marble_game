@@ -6,6 +6,7 @@ import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/game_components/border.dart';
 import 'package:marble_game/ui/levels/level_1.dart';
 import 'package:marble_game/ui/levels/level_2.dart';
+import 'package:marble_game/ui/levels/level_3.dart';
 
 class Level extends Forge2DGame with HasCollisionDetection {
   late final CameraComponent _cameraComponent;
@@ -24,7 +25,7 @@ class Level extends Forge2DGame with HasCollisionDetection {
     cameraWorld.addAll(createBorder(game: this));
   }
 
-  static int actualNumberOfLevel = 2;
+  static int actualNumberOfLevel = 3;
 
   static Game getGameByLevelNumber(int levelNumber) {
     final lang = S.current;
@@ -34,6 +35,8 @@ class Level extends Forge2DGame with HasCollisionDetection {
         return Level1();
       case 2:
         return Level2();
+      case 3:
+        return Level3();
       default:
         throw UnimplementedError(lang.errorLevelDoesNotExist);
     }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 
@@ -13,27 +14,30 @@ class ErrorPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorValue.background,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.deepPurple,
-        ),
-        title: Text(
-          lang.error,
-          style: const TextStyle(color: Colors.deepPurple),
-          maxLines: 1,
-          overflow: TextOverflow.fade,
-        ),
-        centerTitle: true,
-        backgroundColor: ColorValue.appBar,
-        scrolledUnderElevation: 0.0,
-      ),
       body: SafeArea(
         bottom: false,
         child: Center(
-          child: Text(
-            errorText,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                lang.error,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.deepPurple),
+              ),
+              const SizedBox(height: 8.0),
+              Text(
+                errorText,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+              ),
+              const SizedBox(height: 8.0),
+              ElevatedButton(
+                onPressed: context.pop,
+                child: Text(lang.back.toUpperCase()),
+              ),
+            ],
           ),
         ),
       ),

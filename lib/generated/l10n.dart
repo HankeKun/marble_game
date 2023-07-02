@@ -280,6 +280,16 @@ class S {
     );
   }
 
+  /// `Retry`
+  String get retry {
+    return Intl.message(
+      'Retry',
+      name: 'retry',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error`
   String get error {
     return Intl.message(

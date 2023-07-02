@@ -25,6 +25,7 @@
   "completedLevel": "Level geschafft!",
   "nextLevel": "Nächstes Level",
   "back": "Zurück",
+  "retry": "Wiederholen",
 
   "@_ERROR": "",
   "error": "Fehler",

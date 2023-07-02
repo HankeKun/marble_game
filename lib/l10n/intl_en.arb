@@ -25,6 +25,7 @@
   "completedLevel": "Level completed!",
   "nextLevel": "Next level",
   "back": "Back",
+  "retry": "Retry",
 
   "@_ERROR": "",
   "error": "Error",

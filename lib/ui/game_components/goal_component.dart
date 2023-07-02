@@ -56,7 +56,6 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
     if(_contactToBall && isBallFullyInsideGoal()) {
       _ballComponent.removeFromParent();
       gameRef.overlays.add(OverlayName.levelCompleted);
-      gameRef.overlays.remove(OverlayName.pauseButton);
     }
   }
 

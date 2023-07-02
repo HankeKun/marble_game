@@ -4,13 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/generated/l10n.dart';
-import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/components/interrupt_game_dialog.dart';
 import 'package:marble_game/ui/components/level_completed_dialog.dart';
 import 'package:marble_game/ui/components/pause_game_dialog.dart';
 import 'package:marble_game/ui/levels/level.dart';
 import 'package:marble_game/ui/pages/error_page.dart';
-import 'package:provider/provider.dart';
 
 class LevelPage extends StatefulWidget {
   const LevelPage({super.key, required this.levelNumber});
@@ -22,18 +20,17 @@ class LevelPage extends StatefulWidget {
 }
 
 class _LevelPageState extends State<LevelPage> {
-  late Game level;
+  late int levelNumber;
 
   @override
   void initState() {
     super.initState();
-    level = Level.getGameByLevelNumber(widget.levelNumber);
+    levelNumber = widget.levelNumber;
   }
 
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
-    Database database = context.watch();
 
     try {
       return Scaffold(
@@ -41,7 +38,7 @@ class _LevelPageState extends State<LevelPage> {
         body: SafeArea(
           bottom: false,
           child: GameWidget(
-            game: level,
+            game: Level.getGameByLevelNumber(levelNumber),
             loadingBuilder: (context) => Container(
               color: ColorValue.background,
               child: const Center(
@@ -70,7 +67,9 @@ class _LevelPageState extends State<LevelPage> {
                           (game as Game).pauseEngine();
                           final shouldLeave = await showDialog(
                             context: context,
-                            builder: (context) => const PauseGameDialog(),
+                            builder: (context) => PauseGameDialog(resetLevel: () {
+                              setState(() {});
+                            }),
                             barrierDismissible: false,
                           );
                           if (shouldLeave && context.mounted) {
@@ -81,26 +80,14 @@ class _LevelPageState extends State<LevelPage> {
                       ),
                     ),
                   ),
-              OverlayName.levelCompleted: (context, game) {
-                WidgetsBinding.instance.addPostFrameCallback((_) async { // TODO
-                  print("HII");
-                  await database.setActualLevel(widget.levelNumber + 1);
-                  if (context.mounted) {
-                    final shouldLeave = await showDialog(
-                      context: context,
-                      builder: (context) => const LevelCompletedDialog(),
-                      barrierDismissible: false,
-                    );
-                    if (shouldLeave && context.mounted) {
-                      context.pop();
-                    } else {
-                      // TODO: next level
-                      print("Next Level");
-                    }
-                  }
-                });
-                return Container();
-              }
+              OverlayName.levelCompleted: (context, game) => LevelCompletedDialog(
+                    levelNumber: levelNumber,
+                    nextLevel: () {
+                      setState(() {
+                        levelNumber++;
+                      });
+                    },
+                  ),
             },
             initialActiveOverlays: const [
               OverlayName.pauseButton,

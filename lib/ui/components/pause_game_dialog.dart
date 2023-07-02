@@ -4,7 +4,9 @@ import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/sound_checkbox_component.dart';
 
 class PauseGameDialog extends StatelessWidget {
-  const PauseGameDialog({super.key});
+  const PauseGameDialog({super.key, required this.resetLevel});
+
+  final Function resetLevel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,13 @@ class PauseGameDialog extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Navigator.pop(context, true),
               child: Text(lang.interruptGame.toUpperCase()),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context, false);
+                resetLevel();
+              },
+              child: Text(lang.retry.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () => Navigator.pop(context, false),

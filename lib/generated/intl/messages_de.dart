@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "playOn": MessageLookupByLibrary.simpleMessage("Weiterspielen"),
         "progressNotSaved": MessageLookupByLibrary.simpleMessage(
             "Fortschritt wird nicht gespeichert."),
+        "retry": MessageLookupByLibrary.simpleMessage("Wiederholen"),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")
