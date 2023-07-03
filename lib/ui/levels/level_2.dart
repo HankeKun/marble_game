@@ -18,7 +18,7 @@ class Level2 extends Level {
       ),
       SpikeBallComponent(
         position: size / 2,
-        radius: size.y * 0.06,
+        radius: size.y * 0.10,
       ),
     ]);
   }
