@@ -4,11 +4,12 @@ import 'package:sensors_plus/sensors_plus.dart';
 
 class BallComponent extends BodyComponent {
   late final Vector2 _acceleration = Vector2.zero();
-  late final double radius = gameRef.size.y * 0.06;
-  Vector2 startPosition;
+  final Vector2 _startPosition;
 
-  BallComponent({required this.startPosition})
-      : super(
+  late final double radius = gameRef.size.y * 0.06;
+
+  BallComponent({required Vector2 startPosition})
+      : _startPosition = startPosition, super(
           paint: BasicPalette.darkGreen.paint(),
         );
 
@@ -25,7 +26,7 @@ class BallComponent extends BodyComponent {
     final bodyDef = BodyDef(
       userData: this,
       type: BodyType.dynamic,
-      position: startPosition,
+      position: _startPosition,
     );
 
     return world.createBody(bodyDef)..createFixture(fixtureDef);

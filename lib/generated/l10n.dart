@@ -290,6 +290,16 @@ class S {
     );
   }
 
+  /// `Game Over`
+  String get gameOver {
+    return Intl.message(
+      'Game Over',
+      name: 'gameOver',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error`
   String get error {
     return Intl.message(

@@ -26,6 +26,7 @@
   "nextLevel": "Next level",
   "back": "Back",
   "retry": "Retry",
+  "gameOver": "Game Over",
 
   "@_ERROR": "",
   "error": "Error",

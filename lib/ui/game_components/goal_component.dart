@@ -9,11 +9,10 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
   late final double _radius = gameRef.size.y * 0.08;
   late BallComponent _ballComponent;
   bool _contactToBall = false;
+  final Vector2 _position;
 
-  Vector2 position;
-
-  GoalComponent({required this.position})
-      : super(
+  GoalComponent({required Vector2 position})
+      : _position = position, super(
           priority: -1,
           paint: BasicPalette.black.paint(),
         );
@@ -29,7 +28,7 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
 
     final bodyDef = BodyDef(
       userData: this,
-      position: position,
+      position: _position,
     );
 
     return world.createBody(bodyDef)..createFixture(fixtureDef);

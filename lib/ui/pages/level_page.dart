@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/ui/components/game_over_dialog.dart';
 import 'package:marble_game/ui/components/interrupt_game_dialog.dart';
 import 'package:marble_game/ui/components/level_completed_dialog.dart';
 import 'package:marble_game/ui/components/pause_game_dialog.dart';
@@ -67,9 +68,11 @@ class _LevelPageState extends State<LevelPage> {
                           (game as Game).pauseEngine();
                           final shouldLeave = await showDialog(
                             context: context,
-                            builder: (context) => PauseGameDialog(resetLevel: () {
-                              setState(() {});
-                            }),
+                            builder: (context) => PauseGameDialog(
+                              resetLevel: () {
+                                setState(() {});
+                              },
+                            ),
                             barrierDismissible: false,
                           );
                           if (shouldLeave && context.mounted) {
@@ -86,6 +89,11 @@ class _LevelPageState extends State<LevelPage> {
                       setState(() {
                         levelNumber++;
                       });
+                    },
+                  ),
+              OverlayName.gameOver: (context, game) => GameOverDialog(
+                    resetLevel: () {
+                      setState(() {});
                     },
                   ),
             },
