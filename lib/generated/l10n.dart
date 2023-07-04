@@ -300,6 +300,26 @@ class S {
     );
   }
 
+  /// `Background music`
+  String get backgroundMusic {
+    return Intl.message(
+      'Background music',
+      name: 'backgroundMusic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lesfm - Just Relax`
+  String get backgroundMusicTitle {
+    return Intl.message(
+      'Lesfm - Just Relax',
+      name: 'backgroundMusicTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error`
   String get error {
     return Intl.message(

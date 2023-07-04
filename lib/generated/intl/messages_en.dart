@@ -24,6 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About the app"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "backgroundMusic":
+            MessageLookupByLibrary.simpleMessage("Background music"),
+        "backgroundMusicTitle":
+            MessageLookupByLibrary.simpleMessage("Lesfm - Just Relax"),
         "completedLevel":
             MessageLookupByLibrary.simpleMessage("Level completed!"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),

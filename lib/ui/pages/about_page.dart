@@ -49,16 +49,16 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                     const SizedBox(height: 8.0),
                     Text(
-                      '${lang.development}: ${lang.severin}',
+                      "${lang.development}: ${lang.severin}",
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
                     ),
                     Text(
-                      '${lang.design}: ${lang.edonisa}',
+                      "${lang.design}: ${lang.edonisa}",
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
                     ),
-                    const SizedBox(height: 8.0),
+                    const SizedBox(height: 16.0),
                     Text(
                       lang.description,
                       textAlign: TextAlign.center,
@@ -69,6 +69,20 @@ class _AboutPageState extends State<AboutPage> {
                     const SizedBox(height: 8.0),
                     Text(
                       lang.descriptionText,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                    ),
+                    const SizedBox(height: 16.0),
+                    Text(
+                      lang.music,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.deepPurple),
+                      maxLines: 1,
+                      overflow: TextOverflow.fade,
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "${lang.backgroundMusic}: ${lang.backgroundMusicTitle}",
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
                     ),

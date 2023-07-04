@@ -27,6 +27,8 @@
   "back": "Back",
   "retry": "Retry",
   "gameOver": "Game Over",
+  "backgroundMusic": "Background music",
+  "backgroundMusicTitle": "Lesfm - Just Relax",
 
   "@_ERROR": "",
   "error": "Error",
