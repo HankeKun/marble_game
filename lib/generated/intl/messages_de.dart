@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Über die App"),
+        "back": MessageLookupByLibrary.simpleMessage("Zurück"),
+        "completedLevel":
+            MessageLookupByLibrary.simpleMessage("Level geschafft!"),
         "description": MessageLookupByLibrary.simpleMessage("Beschreibung"),
         "descriptionText": MessageLookupByLibrary.simpleMessage(
             "Dieses Spiel wurde in Flutter mit Flame programmiert.\nEs ist Teil eines Moduls für die Uni."),
@@ -41,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Fehler während der Soundboxänderung. Bitte versuche es erneut!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Murmelspiel"),
+        "gameOver": MessageLookupByLibrary.simpleMessage("Game Over"),
         "interrupt": MessageLookupByLibrary.simpleMessage("Abbrechen"),
         "interruptGame":
             MessageLookupByLibrary.simpleMessage("Spiel abbrechen"),
@@ -50,11 +54,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Unterbrochenes Spiel"),
         "levelSelection": MessageLookupByLibrary.simpleMessage("Levelauswahl"),
         "music": MessageLookupByLibrary.simpleMessage("Musik"),
+        "nextLevel": MessageLookupByLibrary.simpleMessage("Nächstes Level"),
         "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Spielen"),
         "playOn": MessageLookupByLibrary.simpleMessage("Weiterspielen"),
         "progressNotSaved": MessageLookupByLibrary.simpleMessage(
             "Fortschritt wird nicht gespeichert."),
+        "retry": MessageLookupByLibrary.simpleMessage("Wiederholen"),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")

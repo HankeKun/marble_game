@@ -3,14 +3,11 @@ import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/sound_checkbox_component.dart';
 
-class PauseGameDialog extends StatefulWidget {
-  const PauseGameDialog({super.key});
+class PauseGameDialog extends StatelessWidget {
+  const PauseGameDialog({super.key, required this.resetLevel});
 
-  @override
-  State<PauseGameDialog> createState() => _PauseGameDialogState();
-}
+  final Function resetLevel;
 
-class _PauseGameDialogState extends State<PauseGameDialog> {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
@@ -37,6 +34,13 @@ class _PauseGameDialogState extends State<PauseGameDialog> {
             ElevatedButton(
               onPressed: () => Navigator.pop(context, true),
               child: Text(lang.interruptGame.toUpperCase()),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context, false);
+                resetLevel();
+              },
+              child: Text(lang.retry.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () => Navigator.pop(context, false),

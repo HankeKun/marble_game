@@ -22,6 +22,11 @@
   "interruptedGame": "Unterbrochenes Spiel",
   "interruptGameNotSaved": "Der Fortschritt eines abgebrochenen Spiels wird nicht gespeichert.",
   "progressNotSaved": "Fortschritt wird nicht gespeichert.",
+  "completedLevel": "Level geschafft!",
+  "nextLevel": "Nächstes Level",
+  "back": "Zurück",
+  "retry": "Wiederholen",
+  "gameOver": "Game Over",
 
   "@_ERROR": "",
   "error": "Fehler",

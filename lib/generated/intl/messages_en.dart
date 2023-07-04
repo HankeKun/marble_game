@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About the app"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "completedLevel":
+            MessageLookupByLibrary.simpleMessage("Level completed!"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "descriptionText": MessageLookupByLibrary.simpleMessage(
             "This game was created in Flutter with Flame.\nIt is part of a module for university."),
@@ -41,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Soundbox. Please try again!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
+        "gameOver": MessageLookupByLibrary.simpleMessage("Game Over"),
         "interrupt": MessageLookupByLibrary.simpleMessage("Interrupt"),
         "interruptGame": MessageLookupByLibrary.simpleMessage("Interrupt game"),
         "interruptGameNotSaved": MessageLookupByLibrary.simpleMessage(
@@ -50,11 +54,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "levelSelection":
             MessageLookupByLibrary.simpleMessage("Level Selection"),
         "music": MessageLookupByLibrary.simpleMessage("Music"),
+        "nextLevel": MessageLookupByLibrary.simpleMessage("Next level"),
         "pause": MessageLookupByLibrary.simpleMessage("Pause"),
         "play": MessageLookupByLibrary.simpleMessage("Play"),
         "playOn": MessageLookupByLibrary.simpleMessage("Play on"),
         "progressNotSaved":
             MessageLookupByLibrary.simpleMessage("Progress will not be saved."),
+        "retry": MessageLookupByLibrary.simpleMessage("Retry"),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")

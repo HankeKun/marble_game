@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marble_game/constants/global.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:marble_game/generated/l10n.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Database with ChangeNotifier {
   final SharedPreferences _prefs;
@@ -22,10 +21,10 @@ class Database with ChangeNotifier {
     } catch (e) {
       Global.snackbarKey.currentState?.hideCurrentSnackBar();
       Global.snackbarKey.currentState?.showSnackBar(
-          SnackBar(
-            content: Text(S.current.errorMusicChange),
-            showCloseIcon: true,
-          ),
+        SnackBar(
+          content: Text(S.current.errorMusicChange),
+          showCloseIcon: true,
+        ),
       );
     }
   }
@@ -50,6 +49,7 @@ class Database with ChangeNotifier {
   int get getActualLevel => _prefs.getInt(_level) ?? 1;
 
   Future<void> setActualLevel(int level) async {
+    if (level <= getActualLevel) return;
     await _prefs.setInt(_level, level);
     notifyListeners();
   }

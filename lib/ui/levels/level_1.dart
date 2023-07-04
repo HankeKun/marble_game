@@ -1,40 +1,36 @@
 import 'dart:async';
 
-import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
-import 'package:flutter/foundation.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
-import 'package:marble_game/ui/game_components/border_component.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
+import 'package:marble_game/ui/levels/level.dart';
 
-class Level1 extends FlameGame with HasCollisionDetection {
-  @override
-  bool get debugMode => kDebugMode;
-
+class Level1 extends Level {
   @override
   Future onLoad() async {
     await super.onLoad();
-    // throw Exception();
-    // await Future.delayed(const Duration(seconds: 3));
-    await addAll([
-      BorderComponent(),
+
+    await cameraWorld.addAll([
       GoalComponent(
         position: Vector2(size.x - size.y * 0.11, size.y * 0.11),
+        // Test:
+        // position: Vector2(size.y * 0.09, size.y - size.y * 0.14),
       ),
       BallComponent(
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
       ),
       WallComponent(
-        anchor: Anchor.topCenter,
-        position: Vector2(size.x / 2, 0),
-        size: Vector2(size.x * 0.05, size.y * 0.4),
+        halfXSize: size.x * 0.025,
+        halfYSize: size.y * 0.2,
+        centerOfWall: Vector2(size.x / 2, size.y * 0.2),
+        angleOfWall: 0,
       ),
       WallComponent(
-        anchor: Anchor.bottomCenter,
-        position: Vector2(size.x / 2, size.y),
-        size: Vector2(size.x * 0.05, size.y * 0.4),
+        halfXSize: size.x * 0.025,
+        halfYSize: size.y * 0.2,
+        centerOfWall: Vector2(size.x / 2, size.y - size.y * 0.2),
+        angleOfWall: 0,
       ),
     ]);
   }
