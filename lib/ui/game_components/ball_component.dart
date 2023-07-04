@@ -2,10 +2,13 @@ import 'package:flame/palette.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:marble_game/constants/music_name.dart';
+import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
 import 'package:sensors_plus/sensors_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BallComponent extends BodyComponent with ContactCallbacks {
+  late Database _database;
   late final Vector2 _acceleration = Vector2.zero();
   final Vector2 _startPosition;
 
@@ -39,6 +42,7 @@ class BallComponent extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    _database = Database(await SharedPreferences.getInstance());
     gyroscopeEvents.listen((GyroscopeEvent event) {
       _acceleration.add(Vector2(event.x, -event.y));
     });
@@ -53,9 +57,8 @@ class BallComponent extends BodyComponent with ContactCallbacks {
   @override
   void beginContact(Object other, Contact contact) {
     super.beginContact(other, contact);
-    if (other is WallComponent) {
-      print("Play sound");
-      FlameAudio.play(MusicName.marbleDrop); // TODO: sound check, edit sound
+    if (other is WallComponent && _database.getSoundBool) {
+      FlameAudio.play(MusicName.marbleDrop);
     }
   }
 }
