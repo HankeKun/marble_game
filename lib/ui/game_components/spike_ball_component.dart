@@ -3,13 +3,14 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
 
 class SpikeBallComponent extends BodyComponent with ContactCallbacks {
   final Vector2 _position;
   final double _radius;
-  late final SpriteComponent _sprite = SpriteComponent();
+  final SpriteComponent _sprite = SpriteComponent();
 
   SpikeBallComponent({required Vector2 position, required double radius})
       : _radius = radius,
@@ -25,7 +26,7 @@ class SpikeBallComponent extends BodyComponent with ContactCallbacks {
 
     renderBody = false;
     _sprite
-      ..sprite = await gameRef.loadSprite("spike_ball.png")
+      ..sprite = await gameRef.loadSprite(ImageName.spikeBall)
       ..size = Vector2(_radius * 2, _radius * 2)
       ..anchor = Anchor.center;
 

@@ -1,9 +1,13 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
+import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/components/sound_checkbox_component.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +17,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    FlameAudio.bgm.initialize();
+    final isMusicOn = context.read<Database>().getMusicBool;
+    if (isMusicOn && !FlameAudio.bgm.isPlaying) {
+      FlameAudio.bgm.play(MusicName.background);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);

@@ -1,12 +1,17 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:marble_game/constants/global.dart';
+import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Database with ChangeNotifier {
   final SharedPreferences _prefs;
+  late bool _didMusicPlay;
 
-  Database(this._prefs);
+  Database(this._prefs) {
+    _didMusicPlay = getMusicBool;
+  }
 
   final String _music = "music";
   final String _sound = "sound";
@@ -17,6 +22,7 @@ class Database with ChangeNotifier {
   Future<void> toggleMusicBool() async {
     try {
       await _prefs.setBool(_music, !getMusicBool);
+      _toggleMusic();
       notifyListeners();
     } catch (e) {
       Global.snackbarKey.currentState?.hideCurrentSnackBar();
@@ -52,5 +58,18 @@ class Database with ChangeNotifier {
     if (level <= getActualLevel) return;
     await _prefs.setInt(_level, level);
     notifyListeners();
+  }
+
+  void _toggleMusic() {
+    if (getMusicBool && _didMusicPlay) {
+      FlameAudio.bgm.resume();
+      return;
+    }
+    if (getMusicBool && !_didMusicPlay) {
+      FlameAudio.bgm.play(MusicName.background);
+      _didMusicPlay = true;
+      return;
+    }
+    FlameAudio.bgm.pause();
   }
 }

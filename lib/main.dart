@@ -1,7 +1,9 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:marble_game/constants/global.dart';
+import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/services/routing.dart';
@@ -10,10 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-  ]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await FlameAudio.audioCache.load(MusicName.background);
   runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
 }
 
