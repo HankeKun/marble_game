@@ -14,7 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  await FlameAudio.audioCache.load(MusicName.background);
+  await FlameAudio.audioCache.loadAll([MusicName.background, MusicName.marbleDrop]);
   runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
 }
 

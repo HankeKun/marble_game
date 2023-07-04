@@ -18,7 +18,11 @@ class WallComponent extends BodyComponent {
     Iterable<Component>? children,
     Paint? color,
     int? priority,
-  }) : _angleOfWall = angleOfWall, _centerOfWall = centerOfWall, _halfYSize = halfYSize, _halfXSize = halfXSize, super(
+  })  : _angleOfWall = angleOfWall,
+        _centerOfWall = centerOfWall,
+        _halfYSize = halfYSize,
+        _halfXSize = halfXSize,
+        super(
           children: children,
           paint: color ?? BasicPalette.brown.paint(),
           priority: priority,

@@ -12,7 +12,8 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
   final Vector2 _position;
 
   GoalComponent({required Vector2 position})
-      : _position = position, super(
+      : _position = position,
+        super(
           priority: -1,
           paint: BasicPalette.black.paint(),
         );
@@ -52,7 +53,7 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
   @override
   void update(double dt) {
     super.update(dt);
-    if(_contactToBall && isBallFullyInsideGoal()) {
+    if (_contactToBall && isBallFullyInsideGoal()) {
       _ballComponent.removeFromParent();
       gameRef.overlays.add(OverlayName.levelCompleted);
     }

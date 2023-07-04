@@ -1,15 +1,19 @@
 import 'package:flame/palette.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:marble_game/constants/music_name.dart';
+import 'package:marble_game/ui/game_components/wall_component.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
-class BallComponent extends BodyComponent {
+class BallComponent extends BodyComponent with ContactCallbacks {
   late final Vector2 _acceleration = Vector2.zero();
   final Vector2 _startPosition;
 
   late final double radius = gameRef.size.y * 0.06;
 
   BallComponent({required Vector2 startPosition})
-      : _startPosition = startPosition, super(
+      : _startPosition = startPosition,
+        super(
           paint: BasicPalette.darkGreen.paint(),
         );
 
@@ -44,5 +48,14 @@ class BallComponent extends BodyComponent {
   void update(double dt) {
     super.update(dt);
     body.applyForce(_acceleration);
+  }
+
+  @override
+  void beginContact(Object other, Contact contact) {
+    super.beginContact(other, contact);
+    if (other is WallComponent) {
+      print("Play sound");
+      FlameAudio.play(MusicName.marbleDrop); // TODO: sound check, edit sound
+    }
   }
 }
