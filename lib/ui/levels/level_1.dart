@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
+import 'package:marble_game/ui/game_components/coin_component.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
 import 'package:marble_game/ui/levels/level.dart';
@@ -31,6 +32,12 @@ class Level1 extends Level {
         halfYSize: size.y * 0.2,
         centerOfWall: Vector2(size.x / 2, size.y - size.y * 0.2),
         angleOfWall: 0,
+      ),
+      CoinComponent(
+        position: Vector2(
+          size.x / 2 - size.x * 0.025 - size.y * 0.04 - size.y * 0.04,
+          size.y * 0.04 + size.y * 0.01 + size.y * 0.04,
+        ),
       ),
     ]);
   }
