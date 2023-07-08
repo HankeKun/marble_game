@@ -16,6 +16,7 @@ class Database with ChangeNotifier {
   final String _music = "music";
   final String _sound = "sound";
   final String _level = "level";
+  final String _coins = "coins";
 
   bool get getMusicBool => _prefs.getBool(_music) ?? true;
 
@@ -57,6 +58,18 @@ class Database with ChangeNotifier {
   Future<void> setActualLevel(int level) async {
     if (level <= getActualLevel) return;
     await _prefs.setInt(_level, level);
+    notifyListeners();
+  }
+
+  int get getCoinsCount => _prefs.getInt(_coins) ?? 0;
+
+  Future<void> countCoinsUp() async {
+    await _prefs.setInt(_coins, getCoinsCount + 1);
+    notifyListeners();
+  }
+
+  Future<void> setCoinsCount(int coins) async {
+    await _prefs.setInt(_coins, coins);
     notifyListeners();
   }
 

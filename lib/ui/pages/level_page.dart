@@ -2,14 +2,17 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marble_game/constants/color_value.dart';
+import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/constants/overlay_name.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/components/game_over_dialog.dart';
 import 'package:marble_game/ui/components/interrupt_game_dialog.dart';
 import 'package:marble_game/ui/components/level_completed_dialog.dart';
 import 'package:marble_game/ui/components/pause_game_dialog.dart';
 import 'package:marble_game/ui/levels/level.dart';
 import 'package:marble_game/ui/pages/error_page.dart';
+import 'package:provider/provider.dart';
 
 class LevelPage extends StatefulWidget {
   const LevelPage({super.key, required this.levelNumber});
@@ -32,6 +35,7 @@ class _LevelPageState extends State<LevelPage> {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    Database database = context.watch();
 
     try {
       return Scaffold(
@@ -96,9 +100,30 @@ class _LevelPageState extends State<LevelPage> {
                       setState(() {});
                     },
                   ),
+              OverlayName.coinsCount: (context, game) => Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/${ImageName.coin1}",
+                          width: 25,
+                          height: 25,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          database.getCoinsCount.toString(),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.deepPurple),
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
+                        ),
+                      ],
+                    ),
+                  ),
             },
             initialActiveOverlays: const [
               OverlayName.pauseButton,
+              OverlayName.coinsCount,
             ],
           ),
         ),
