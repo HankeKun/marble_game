@@ -6,6 +6,7 @@ class ColorValue {
   static Color appBar = const Color(0xffe1b3ff);
   static Color background = const Color(0xffecd0ff);
   static Color lockSymbol = Colors.deepPurple.shade300;
+  static Color coinBackground = const Color(0xff000000).withOpacity(0.3);
 
   static Color completedLevel = const Color(0xff32cd32);
   static Color actualLevel = const Color(0xffe1b3ff);
