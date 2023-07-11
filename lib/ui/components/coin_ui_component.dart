@@ -21,7 +21,7 @@ class CoinUiComponent extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          database.getCoinsCount.toString(),
+          database.getCoinsCount > 999 ? "999+" : database.getCoinsCount.toString(),
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.deepPurple),
           maxLines: 1,
