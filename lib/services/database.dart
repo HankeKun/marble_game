@@ -1,16 +1,23 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marble_game/constants/global.dart';
 import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+@singleton
 class Database with ChangeNotifier {
   final SharedPreferences _prefs;
   late bool _didMusicPlay;
 
   Database(this._prefs) {
     _didMusicPlay = getMusicBool;
+  }
+
+  @FactoryMethod()
+  static Future<Database> create() async {
+    return Database(await SharedPreferences.getInstance());
   }
 
   final String _music = "music";

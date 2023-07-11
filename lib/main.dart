@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:marble_game/constants/global.dart';
 import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/get_it/get_it.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/services/routing.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await configureDependencies();
   await FlameAudio.audioCache.loadAll([MusicName.background, MusicName.marbleDrop]);
   runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
 }
@@ -25,9 +27,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routing = getIt.get<Routing>();
+
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => Database(sharedPreferences)),
+        ChangeNotifierProvider(create: (_) => getIt.get<Database>()),
       ],
       child: MaterialApp.router(
         title: 'Marble Game',
@@ -48,7 +52,7 @@ class MyApp extends StatelessWidget {
           highlightColor: const Color(0x33000000),
           splashColor: const Color(0x19000000),
         ),
-        routerConfig: Routing.router,
+        routerConfig: routing.router,
         scaffoldMessengerKey: Global.snackbarKey,
         debugShowCheckedModeBanner: true,
       ),

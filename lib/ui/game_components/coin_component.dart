@@ -1,12 +1,12 @@
 import 'package:flame/components.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:marble_game/constants/image_name.dart';
+import 'package:marble_game/get_it/get_it.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CoinComponent extends BodyComponent with ContactCallbacks {
-  late Database _database;
+  late final Database _database = getIt.get<Database>();
   final Vector2 _position;
   late final double _radius = gameRef.size.y * 0.04;
   final SpriteAnimationComponent _sprite = SpriteAnimationComponent();
@@ -20,7 +20,6 @@ class CoinComponent extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    _database = Database(await SharedPreferences.getInstance());
 
     renderBody = false;
 

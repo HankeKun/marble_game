@@ -1,14 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:injectable/injectable.dart';
 import 'package:marble_game/constants/route_name.dart';
 import 'package:marble_game/ui/pages/about_page.dart';
 import 'package:marble_game/ui/pages/home_page.dart';
 import 'package:marble_game/ui/pages/level_page.dart';
 import 'package:marble_game/ui/pages/level_selection_page.dart';
 
+@singleton
 class Routing {
-  static final router = GoRouter(
+  final router = GoRouter(
     initialLocation: RouteName.homepage,
     debugLogDiagnostics: kDebugMode,
     routes: [
