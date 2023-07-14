@@ -9,7 +9,6 @@ import 'package:sensors_plus/sensors_plus.dart';
 
 class BallComponent extends BodyComponent with ContactCallbacks {
   late final Database _database = getIt.get<Database>();
-  late final Vector2 _acceleration = Vector2.zero();
   final Vector2 _startPosition;
 
   late final double radius = gameRef.size.y * 0.06;
@@ -42,15 +41,10 @@ class BallComponent extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    gyroscopeEvents.listen((GyroscopeEvent event) {
-      _acceleration.add(Vector2(event.x, -event.y));
-    });
-  }
 
-  @override
-  void update(double dt) {
-    super.update(dt);
-    body.applyForce(_acceleration);
+    accelerometerEvents.listen((event) {
+      body.linearVelocity = Vector2(event.y, event.x) * 0.8;
+    });
   }
 
   @override
