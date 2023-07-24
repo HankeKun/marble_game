@@ -22,15 +22,15 @@ class Level1 extends Level {
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
       ),
       WallComponent(
-        halfXSize: size.x * 0.025,
-        halfYSize: size.y * 0.2,
-        centerOfWall: Vector2(size.x / 2, size.y * 0.2),
+        width: size.x * 0.05,
+        height: size.y * 0.4,
+        topCenterPosition: Vector2(size.x / 2, 0),
         angleOfWall: 0,
       ),
       WallComponent(
-        halfXSize: size.x * 0.025,
-        halfYSize: size.y * 0.2,
-        centerOfWall: Vector2(size.x / 2, size.y - size.y * 0.2),
+        width: size.x * 0.05,
+        height: size.y * 0.4,
+        topCenterPosition: Vector2(size.x / 2, size.y - size.y * 0.4),
         angleOfWall: 0,
       ),
       CoinComponent(
