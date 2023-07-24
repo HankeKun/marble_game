@@ -1,3 +1,4 @@
+import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
@@ -9,12 +10,15 @@ import 'package:sensors_plus/sensors_plus.dart';
 
 class BallComponent extends BodyComponent with ContactCallbacks {
   late final Database _database = getIt.get<Database>();
+  final SpriteComponent _sprite = SpriteComponent();
   final Vector2 _startPosition;
+  final String _assetString;
 
   late final double radius = gameRef.size.y * 0.06;
 
-  BallComponent({required Vector2 startPosition})
+  BallComponent({required Vector2 startPosition, required String assetString})
       : _startPosition = startPosition,
+        _assetString = assetString,
         super(
           paint: BasicPalette.darkGreen.paint(),
         );
@@ -26,7 +30,6 @@ class BallComponent extends BodyComponent with ContactCallbacks {
     final fixtureDef = FixtureDef(
       shape,
       density: 1.0,
-      restitution: 0.05,
     );
 
     final bodyDef = BodyDef(
@@ -41,6 +44,14 @@ class BallComponent extends BodyComponent with ContactCallbacks {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+
+    renderBody = false;
+    _sprite
+      ..sprite = await gameRef.loadSprite(_assetString)
+      ..size = Vector2.all(radius * 2)
+      ..anchor = Anchor.center;
+
+    add(_sprite);
 
     accelerometerEvents.listen((event) {
       body.linearVelocity = Vector2(event.y, event.x) * 0.8;
