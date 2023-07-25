@@ -7,6 +7,10 @@
   "about": "About the app",
   "music": "Music",
   "sound": "Sound",
+  "shop": "Shop",
+  "buy": "Buy",
+  "buyBall": "Purchase ball",
+  "cancel": "Cancel",
   "developer": "Developer",
   "development": "Development",
   "design": "Design",
@@ -27,13 +31,35 @@
   "back": "Back",
   "retry": "Retry",
   "gameOver": "Game Over",
+  "ballToExpensive": "You do not have enough coins!",
   "backgroundMusic": "Background music",
   "backgroundMusicTitle": "Lesfm - Just Relax",
+
+  "@_BALL": "",
+  "ballPurple": "Purple ball",
+  "ballRed": "Red ball",
+  "ballBlue": "Blue ball",
+  "ballColorful": "Colorful ball",
+  "ballTennis": "Tennis ball",
+  "ballVolley": "Volleyball",
+  "ballFoot": "Soccerball",
+  "ballBowling": "Bowling ball",
+  "ballInvisible": "Invisible ball",
+  "buyBallForAmount": "Do you want to buy the ball for {amount} coins?",
+  "@buyBallForAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
 
   "@_ERROR": "",
   "error": "Error",
   "errorMusicChange": "Error while changing Musicbox. Please try again!",
   "errorSoundChange": "Error while changing Soundbox. Please try again!",
+  "errorSetCurrentBall": "Error while changing the ball. Please try again!",
+  "errorPurchasingBall": "Error while purchasing a ball. Please try again!",
   "errorLevelDoesNotExist": "Level does not exist.",
   "errorLoadingLevel": "Error while loading the level.\nPlease try again."
 }

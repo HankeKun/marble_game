@@ -7,6 +7,10 @@
   "about": "Über die App",
   "music": "Musik",
   "sound": "Sound",
+  "shop": "Shop",
+  "buy": "Kaufen",
+  "buyBall": "Ball kaufen",
+  "cancel": "Abbrechen",
   "developer": "Entwickler",
   "development": "Entwicklung",
   "design": "Design",
@@ -27,13 +31,35 @@
   "back": "Zurück",
   "retry": "Wiederholen",
   "gameOver": "Game Over",
+  "ballToExpensive": "Du hast nicht genug Münzen!",
   "backgroundMusic": "Hintergrundmusik",
   "backgroundMusicTitle": "Lesfm - Just Relax",
+
+  "@_BALL": "",
+  "ballPurple": "Lila Ball",
+  "ballRed": "Roter Ball",
+  "ballBlue": "Blauer Ball",
+  "ballColorful": "Farbenfroher Ball",
+  "ballTennis": "Tennisball",
+  "ballVolley": "Volleyball",
+  "ballFoot": "Fußball",
+  "ballBowling": "Bowlingkugel",
+  "ballInvisible": "Unsichtbarball",
+  "buyBallForAmount": "Willst du den Ball für {amount} Münzen kaufen?",
+  "@buyBallForAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
 
   "@_ERROR": "",
   "error": "Fehler",
   "errorMusicChange": "Fehler während der Musikboxänderung. Bitte versuche es erneut!",
   "errorSoundChange": "Fehler während der Soundboxänderung. Bitte versuche es erneut!",
+  "errorSetCurrentBall": "Fehler während der Ballauswahl. Bitte versuche es erneut!",
+  "errorPurchasingBall": "Fehler während dem Ballkauf. Bitte versuche es erneut!",
   "errorLevelDoesNotExist": "Level existiert nicht.",
   "errorLoadingLevel": "Es ist ein Fehler beim laden des Levels aufgetreten.\nBitte versuche es erneut."
 }

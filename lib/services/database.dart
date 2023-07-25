@@ -1,29 +1,34 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:marble_game/constants/global.dart';
+import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/constants/music_name.dart';
+import 'package:marble_game/enums/e_ball.dart';
 import 'package:marble_game/generated/l10n.dart';
+import 'package:marble_game/services/show_snackbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @singleton
 class Database with ChangeNotifier {
   final SharedPreferences _prefs;
+  final ShowSnackbar _snackbar;
   late bool _didMusicPlay;
 
-  Database(this._prefs) {
+  Database(this._prefs, this._snackbar) {
     _didMusicPlay = getMusicBool;
   }
 
   @FactoryMethod()
-  static Future<Database> create() async {
-    return Database(await SharedPreferences.getInstance());
+  static Future<Database> create(ShowSnackbar snackbar) async {
+    return Database(await SharedPreferences.getInstance(), snackbar);
   }
 
   final String _music = "music";
   final String _sound = "sound";
   final String _level = "level";
   final String _coins = "coins";
+  final String _currentBall = "current-ball";
+  final String _purchasedBalls = "purchased-balls";
 
   bool get getMusicBool => _prefs.getBool(_music) ?? true;
 
@@ -33,13 +38,7 @@ class Database with ChangeNotifier {
       _toggleMusic();
       notifyListeners();
     } catch (e) {
-      Global.snackbarKey.currentState?.hideCurrentSnackBar();
-      Global.snackbarKey.currentState?.showSnackBar(
-        SnackBar(
-          content: Text(S.current.errorMusicChange),
-          showCloseIcon: true,
-        ),
-      );
+      _snackbar.showSnackbar(S.current.errorMusicChange);
     }
   }
 
@@ -50,13 +49,7 @@ class Database with ChangeNotifier {
       await _prefs.setBool(_sound, !getSoundBool);
       notifyListeners();
     } catch (e) {
-      Global.snackbarKey.currentState?.hideCurrentSnackBar();
-      Global.snackbarKey.currentState?.showSnackBar(
-        SnackBar(
-          content: Text(S.current.errorSoundChange),
-          showCloseIcon: true,
-        ),
-      );
+      _snackbar.showSnackbar(S.current.errorSoundChange);
     }
   }
 
@@ -91,5 +84,44 @@ class Database with ChangeNotifier {
       return;
     }
     FlameAudio.bgm.pause();
+  }
+
+  EBall get currentBall {
+    final ballString = _prefs.getString(_currentBall) ?? EBall.purpleBall.name;
+    return EBall.values.firstWhere((element) => element.name == ballString);
+  }
+
+  Future<void> setCurrentBall(EBall currentBall) async {
+    try {
+      await _prefs.setString(_currentBall, currentBall.name);
+      notifyListeners();
+    } catch (e) {
+      _snackbar.showSnackbar(S.current.errorSetCurrentBall);
+    }
+  }
+
+  List<EBall> get purchasedBalls {
+    List<String> purchasedBallsString = _prefs.getStringList(_purchasedBalls) ?? [];
+    List<EBall> purchasedBalls = purchasedBallsString.map((ball) {
+      return EBall.values.firstWhere((element) => element.name == ball);
+    }).toList();
+    purchasedBalls.addAll([EBall.purpleBall, EBall.redBall, EBall.blueBall, EBall.colorfulBall]);
+    return purchasedBalls;
+  }
+
+  Future<void> purchaseBall(EBall ball) async {
+    try {
+      if (getCoinsCount < EBallString.getBallPrice(ball)) {
+        _snackbar.showSnackbar(S.current.ballToExpensive);
+        return;
+      }
+      List<String> purchasedBalls = _prefs.getStringList(_purchasedBalls) ?? [];
+      purchasedBalls.add(ball.name);
+      await _prefs.setStringList(_purchasedBalls, purchasedBalls);
+      await setCoinsCount(getCoinsCount - EBallString.getBallPrice(ball));
+      notifyListeners();
+    } catch (e) {
+      _snackbar.showSnackbar(S.current.errorPurchasingBall);
+    }
   }
 }

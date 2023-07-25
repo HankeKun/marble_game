@@ -20,6 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(amount) =>
+      "Do you want to buy the ball for ${amount} coins?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About the app"),
@@ -28,6 +31,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Background music"),
         "backgroundMusicTitle":
             MessageLookupByLibrary.simpleMessage("Lesfm - Just Relax"),
+        "ballBlue": MessageLookupByLibrary.simpleMessage("Blue ball"),
+        "ballBowling": MessageLookupByLibrary.simpleMessage("Bowling ball"),
+        "ballColorful": MessageLookupByLibrary.simpleMessage("Colorful ball"),
+        "ballFoot": MessageLookupByLibrary.simpleMessage("Soccerball"),
+        "ballInvisible": MessageLookupByLibrary.simpleMessage("Invisible ball"),
+        "ballPurple": MessageLookupByLibrary.simpleMessage("Purple ball"),
+        "ballRed": MessageLookupByLibrary.simpleMessage("Red ball"),
+        "ballTennis": MessageLookupByLibrary.simpleMessage("Tennis ball"),
+        "ballToExpensive": MessageLookupByLibrary.simpleMessage(
+            "You do not have enough coins!"),
+        "ballVolley": MessageLookupByLibrary.simpleMessage("Volleyball"),
+        "buy": MessageLookupByLibrary.simpleMessage("Buy"),
+        "buyBall": MessageLookupByLibrary.simpleMessage("Purchase ball"),
+        "buyBallForAmount": m0,
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "completedLevel":
             MessageLookupByLibrary.simpleMessage("Level completed!"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -45,6 +63,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Error while loading the level.\nPlease try again."),
         "errorMusicChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Musicbox. Please try again!"),
+        "errorPurchasingBall": MessageLookupByLibrary.simpleMessage(
+            "Error while purchasing a ball. Please try again!"),
+        "errorSetCurrentBall": MessageLookupByLibrary.simpleMessage(
+            "Error while changing the ball. Please try again!"),
         "errorSoundChange": MessageLookupByLibrary.simpleMessage(
             "Error while changing Soundbox. Please try again!"),
         "gameName": MessageLookupByLibrary.simpleMessage("Marble Game"),
@@ -67,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "retry": MessageLookupByLibrary.simpleMessage("Retry"),
         "severin":
             MessageLookupByLibrary.simpleMessage("Severin Hanke (@HankeKun)"),
+        "shop": MessageLookupByLibrary.simpleMessage("Shop"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound")
       };
 }

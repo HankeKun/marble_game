@@ -2,14 +2,13 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:marble_game/constants/global.dart';
 import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/get_it/get_it.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/services/routing.dart';
+import 'package:marble_game/services/show_snackbar.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,17 +16,16 @@ Future<void> main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await configureDependencies();
   await FlameAudio.audioCache.loadAll([MusicName.background, MusicName.marbleDrop]);
-  runApp(MyApp(sharedPreferences: await SharedPreferences.getInstance()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.sharedPreferences});
-
-  final SharedPreferences sharedPreferences;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final routing = getIt.get<Routing>();
+    final snackbar = getIt.get<ShowSnackbar>();
 
     return MultiProvider(
       providers: [
@@ -53,7 +51,7 @@ class MyApp extends StatelessWidget {
           splashColor: const Color(0x19000000),
         ),
         routerConfig: routing.router,
-        scaffoldMessengerKey: Global.snackbarKey,
+        scaffoldMessengerKey: snackbar.snackbarKey,
         debugShowCheckedModeBanner: true,
       ),
     );

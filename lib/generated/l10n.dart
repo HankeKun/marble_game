@@ -100,6 +100,46 @@ class S {
     );
   }
 
+  /// `Shop`
+  String get shop {
+    return Intl.message(
+      'Shop',
+      name: 'shop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy`
+  String get buy {
+    return Intl.message(
+      'Buy',
+      name: 'buy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purchase ball`
+  String get buyBall {
+    return Intl.message(
+      'Purchase ball',
+      name: 'buyBall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Developer`
   String get developer {
     return Intl.message(
@@ -300,6 +340,16 @@ class S {
     );
   }
 
+  /// `You do not have enough coins!`
+  String get ballToExpensive {
+    return Intl.message(
+      'You do not have enough coins!',
+      name: 'ballToExpensive',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Background music`
   String get backgroundMusic {
     return Intl.message(
@@ -317,6 +367,106 @@ class S {
       name: 'backgroundMusicTitle',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Purple ball`
+  String get ballPurple {
+    return Intl.message(
+      'Purple ball',
+      name: 'ballPurple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Red ball`
+  String get ballRed {
+    return Intl.message(
+      'Red ball',
+      name: 'ballRed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blue ball`
+  String get ballBlue {
+    return Intl.message(
+      'Blue ball',
+      name: 'ballBlue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Colorful ball`
+  String get ballColorful {
+    return Intl.message(
+      'Colorful ball',
+      name: 'ballColorful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tennis ball`
+  String get ballTennis {
+    return Intl.message(
+      'Tennis ball',
+      name: 'ballTennis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volleyball`
+  String get ballVolley {
+    return Intl.message(
+      'Volleyball',
+      name: 'ballVolley',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Soccerball`
+  String get ballFoot {
+    return Intl.message(
+      'Soccerball',
+      name: 'ballFoot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bowling ball`
+  String get ballBowling {
+    return Intl.message(
+      'Bowling ball',
+      name: 'ballBowling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invisible ball`
+  String get ballInvisible {
+    return Intl.message(
+      'Invisible ball',
+      name: 'ballInvisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to buy the ball for {amount} coins?`
+  String buyBallForAmount(int amount) {
+    return Intl.message(
+      'Do you want to buy the ball for $amount coins?',
+      name: 'buyBallForAmount',
+      desc: '',
+      args: [amount],
     );
   }
 
@@ -345,6 +495,26 @@ class S {
     return Intl.message(
       'Error while changing Soundbox. Please try again!',
       name: 'errorSoundChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while changing the ball. Please try again!`
+  String get errorSetCurrentBall {
+    return Intl.message(
+      'Error while changing the ball. Please try again!',
+      name: 'errorSetCurrentBall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while purchasing a ball. Please try again!`
+  String get errorPurchasingBall {
+    return Intl.message(
+      'Error while purchasing a ball. Please try again!',
+      name: 'errorPurchasingBall',
       desc: '',
       args: [],
     );

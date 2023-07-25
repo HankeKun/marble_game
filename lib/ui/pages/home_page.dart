@@ -66,6 +66,18 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 8.0),
                   Center(
                     child: ConstrainedBox(
+                      constraints: const BoxConstraints(minWidth: 325),
+                      child: ElevatedButton(
+                        child: Text(lang.shop.toUpperCase(), maxLines: 1, overflow: TextOverflow.fade),
+                        onPressed: () {
+                          context.goNamed(RouteName.shop);
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8.0),
+                  Center(
+                    child: ConstrainedBox(
                       constraints: const BoxConstraints(minWidth: 250),
                       child: ElevatedButton(
                         child: Text(lang.about, maxLines: 1, overflow: TextOverflow.fade),

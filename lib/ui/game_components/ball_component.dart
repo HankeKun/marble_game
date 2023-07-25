@@ -3,6 +3,7 @@ import 'package:flame/palette.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:marble_game/constants/music_name.dart';
+import 'package:marble_game/enums/e_ball.dart';
 import 'package:marble_game/get_it/get_it.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/game_components/wall_component.dart';
@@ -12,13 +13,11 @@ class BallComponent extends BodyComponent with ContactCallbacks {
   late final Database _database = getIt.get<Database>();
   final SpriteComponent _sprite = SpriteComponent();
   final Vector2 _startPosition;
-  final String _assetString;
 
   late final double radius = gameRef.size.y * 0.06;
 
-  BallComponent({required Vector2 startPosition, required String assetString})
+  BallComponent({required Vector2 startPosition})
       : _startPosition = startPosition,
-        _assetString = assetString,
         super(
           paint: BasicPalette.darkGreen.paint(),
         );
@@ -47,7 +46,7 @@ class BallComponent extends BodyComponent with ContactCallbacks {
 
     renderBody = false;
     _sprite
-      ..sprite = await gameRef.loadSprite(_assetString)
+      ..sprite = await gameRef.loadSprite(EBallString.getBallImage(_database.currentBall))
       ..size = Vector2.all(radius * 2)
       ..anchor = Anchor.center;
 

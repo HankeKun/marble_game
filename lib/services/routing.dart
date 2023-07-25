@@ -7,6 +7,7 @@ import 'package:marble_game/ui/pages/about_page.dart';
 import 'package:marble_game/ui/pages/home_page.dart';
 import 'package:marble_game/ui/pages/level_page.dart';
 import 'package:marble_game/ui/pages/level_selection_page.dart';
+import 'package:marble_game/ui/pages/shop_page.dart';
 
 @singleton
 class Routing {
@@ -39,6 +40,14 @@ class Routing {
                 ),
               ),
             ],
+          ),
+          GoRoute(
+            path: RouteName.shop,
+            name: RouteName.shop,
+            pageBuilder: (context, state) => MaterialPage(
+              key: state.pageKey,
+              child: const ShopPage(),
+            ),
           ),
           GoRoute(
             path: RouteName.about,

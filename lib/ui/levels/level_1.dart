@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
-import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
 import 'package:marble_game/ui/game_components/coin_component.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
@@ -19,7 +18,6 @@ class Level1 extends Level {
       ),
       BallComponent(
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
-        assetString: ImageName.volleyBall,
       ),
       WallComponent(
         width: size.x * 0.05,

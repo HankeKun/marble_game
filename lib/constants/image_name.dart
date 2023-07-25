@@ -1,13 +1,10 @@
 class ImageName {
   ImageName._();
 
-  static const String blackBall = "balls/black_ball.png";
   static const String blueBall = "balls/blue_ball.png";
   static const String bowlingBall = "balls/bowling_ball.png";
   static const String colorfulBall = "balls/colorful_ball.png";
   static const String footBall = "balls/foot_ball.png";
-  static const String lightBlueBall = "balls/light_blue_ball.png";
-  static const String orangeBall = "balls/orange_ball.png";
   static const String purpleBall = "balls/purple_ball.png";
   static const String redBall = "balls/red_ball.png";
   static const String spikeBall = "balls/spike_ball.png";
