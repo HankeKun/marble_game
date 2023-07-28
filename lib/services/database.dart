@@ -1,26 +1,25 @@
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/enums/e_ball.dart';
 import 'package:marble_game/generated/l10n.dart';
-import 'package:marble_game/services/show_snackbar.dart';
+import 'package:marble_game/services/show_snack_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @singleton
 class Database with ChangeNotifier {
   final SharedPreferences _prefs;
-  final ShowSnackbar _snackbar;
+  final ShowSnackBar _snackBar;
   late bool _didMusicPlay;
 
-  Database(this._prefs, this._snackbar) {
+  Database(this._prefs, this._snackBar) {
     _didMusicPlay = getMusicBool;
   }
 
   @FactoryMethod()
-  static Future<Database> create(ShowSnackbar snackbar) async {
-    return Database(await SharedPreferences.getInstance(), snackbar);
+  static Future<Database> create(ShowSnackBar snackBar) async {
+    return Database(await SharedPreferences.getInstance(), snackBar);
   }
 
   final String _music = "music";
@@ -38,7 +37,7 @@ class Database with ChangeNotifier {
       _toggleMusic();
       notifyListeners();
     } catch (e) {
-      _snackbar.showSnackbar(S.current.errorMusicChange);
+      _snackBar.showSnackbar(S.current.errorMusicChange);
     }
   }
 
@@ -49,7 +48,7 @@ class Database with ChangeNotifier {
       await _prefs.setBool(_sound, !getSoundBool);
       notifyListeners();
     } catch (e) {
-      _snackbar.showSnackbar(S.current.errorSoundChange);
+      _snackBar.showSnackbar(S.current.errorSoundChange);
     }
   }
 
@@ -96,7 +95,7 @@ class Database with ChangeNotifier {
       await _prefs.setString(_currentBall, currentBall.name);
       notifyListeners();
     } catch (e) {
-      _snackbar.showSnackbar(S.current.errorSetCurrentBall);
+      _snackBar.showSnackbar(S.current.errorSetCurrentBall);
     }
   }
 
@@ -112,7 +111,7 @@ class Database with ChangeNotifier {
   Future<void> purchaseBall(EBall ball) async {
     try {
       if (getCoinsCount < EBallString.getBallPrice(ball)) {
-        _snackbar.showSnackbar(S.current.ballToExpensive);
+        _snackBar.showSnackbar(S.current.ballToExpensive);
         return;
       }
       List<String> purchasedBalls = _prefs.getStringList(_purchasedBalls) ?? [];
@@ -121,7 +120,7 @@ class Database with ChangeNotifier {
       await setCoinsCount(getCoinsCount - EBallString.getBallPrice(ball));
       notifyListeners();
     } catch (e) {
-      _snackbar.showSnackbar(S.current.errorPurchasingBall);
+      _snackBar.showSnackbar(S.current.errorPurchasingBall);
     }
   }
 }

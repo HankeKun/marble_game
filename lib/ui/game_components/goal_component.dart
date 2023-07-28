@@ -1,11 +1,16 @@
 import 'dart:math';
 
 import 'package:flame/palette.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
+import 'package:marble_game/constants/music_name.dart';
 import 'package:marble_game/constants/overlay_name.dart';
+import 'package:marble_game/get_it/get_it.dart';
+import 'package:marble_game/services/database.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
 
 class GoalComponent extends BodyComponent with ContactCallbacks {
+  final Database _database = getIt.get<Database>();
   late final double _radius = gameRef.size.y * 0.08;
   late BallComponent _ballComponent;
   bool _contactToBall = false;
@@ -55,6 +60,7 @@ class GoalComponent extends BodyComponent with ContactCallbacks {
     super.update(dt);
     if (_contactToBall && isBallFullyInsideGoal()) {
       _ballComponent.removeFromParent();
+      if (_database.getSoundBool) FlameAudio.play(MusicName.winningBell);
       gameRef.overlays.add(OverlayName.levelCompleted);
     }
   }

@@ -10,7 +10,7 @@ import 'package:marble_game/ui/game_components/wall_component.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 class BallComponent extends BodyComponent with ContactCallbacks {
-  late final Database _database = getIt.get<Database>();
+  final Database _database = getIt.get<Database>();
   final SpriteComponent _sprite = SpriteComponent();
   final Vector2 _startPosition;
 
@@ -45,15 +45,17 @@ class BallComponent extends BodyComponent with ContactCallbacks {
     await super.onLoad();
 
     renderBody = false;
-    _sprite
-      ..sprite = await gameRef.loadSprite(EBallString.getBallImage(_database.currentBall))
-      ..size = Vector2.all(radius * 2)
-      ..anchor = Anchor.center;
+    if (_database.currentBall != EBall.invisibleBall) {
+      _sprite
+        ..sprite = await gameRef.loadSprite(EBallString.getBallImage(_database.currentBall))
+        ..size = Vector2.all(radius * 2)
+        ..anchor = Anchor.center;
 
-    add(_sprite);
+      add(_sprite);
+    }
 
     accelerometerEvents.listen((event) {
-      body.linearVelocity = Vector2(event.y, event.x) * 0.8;
+      body.linearVelocity = Vector2(event.y, event.x);
     });
   }
 

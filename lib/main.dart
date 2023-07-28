@@ -7,7 +7,7 @@ import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/get_it/get_it.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:marble_game/services/routing.dart';
-import 'package:marble_game/services/show_snackbar.dart';
+import 'package:marble_game/services/show_snack_bar.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -15,7 +15,7 @@ Future<void> main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await configureDependencies();
-  await FlameAudio.audioCache.loadAll([MusicName.background, MusicName.marbleDrop]);
+  await FlameAudio.audioCache.loadAll([MusicName.background, MusicName.marbleDrop, MusicName.winningBell]);
   runApp(const MyApp());
 }
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final routing = getIt.get<Routing>();
-    final snackbar = getIt.get<ShowSnackbar>();
+    final snackBar = getIt.get<ShowSnackBar>();
 
     return MultiProvider(
       providers: [
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           splashColor: const Color(0x19000000),
         ),
         routerConfig: routing.router,
-        scaffoldMessengerKey: snackbar.snackbarKey,
+        scaffoldMessengerKey: snackBar.snackBarKey,
         debugShowCheckedModeBanner: true,
       ),
     );

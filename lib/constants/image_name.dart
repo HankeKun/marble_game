@@ -25,4 +25,6 @@ class ImageName {
   static const String brick = "bricks/brick.png";
   static const String brickHorizontal = "bricks/brick_horizontal.png";
   static const String brickVertical = "bricks/brick_vertical.png";
+
+  static const String winningAnimation = "assets/animations/winning_confetti.json";
 }

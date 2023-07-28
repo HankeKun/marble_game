@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
-class ShowSnackbar {
-  final GlobalKey<ScaffoldMessengerState> snackbarKey = GlobalKey<ScaffoldMessengerState>();
+class ShowSnackBar {
+  final GlobalKey<ScaffoldMessengerState> snackBarKey = GlobalKey<ScaffoldMessengerState>();
 
   void showSnackbar(String text) {
-    snackbarKey.currentState?.hideCurrentSnackBar();
-    snackbarKey.currentState?.showSnackBar(
+    snackBarKey.currentState?.hideCurrentSnackBar();
+    snackBarKey.currentState?.showSnackBar(
       SnackBar(
         content: Text(text),
         showCloseIcon: true,
