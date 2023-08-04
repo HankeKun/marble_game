@@ -1,6 +1,7 @@
 import 'package:flame_lottie/flame_lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/services/database.dart';
@@ -23,6 +24,8 @@ class _LevelCompletedDialogState extends State<LevelCompletedDialog> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final lang = S.of(context);
+      final theme = Theme.of(context);
+
       showDialog(
         context: context,
         builder: (context) => Stack(
@@ -36,7 +39,7 @@ class _LevelCompletedDialogState extends State<LevelCompletedDialog> {
               title: Text(
                 lang.completedLevel,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.deepPurple),
+                style: TextStyle(color: theme.primaryColor),
               ),
               actionsAlignment: widget.levelNumber < Level.actualNumberOfLevel
                   ? MainAxisAlignment.spaceBetween

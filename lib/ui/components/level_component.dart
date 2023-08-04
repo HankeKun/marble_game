@@ -34,7 +34,7 @@ class LevelComponent extends StatelessWidget {
               child: Text(
                 levelNumber.toString(),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.deepPurple),
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: ColorValue.lightText),
                 maxLines: 1,
                 overflow: TextOverflow.fade,
               ),

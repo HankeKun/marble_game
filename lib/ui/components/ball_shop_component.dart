@@ -13,6 +13,7 @@ class BallShopComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     Database database = context.watch();
 
     return Column(
@@ -89,7 +90,7 @@ class BallShopComponent extends StatelessWidget {
           child: Text(
             EBallString.getBallString(ball),
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.deepPurple),
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: theme.primaryColor),
             maxLines: 1,
             overflow: TextOverflow.fade,
           ),

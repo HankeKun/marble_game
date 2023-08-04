@@ -11,6 +11,7 @@ class ErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       backgroundColor: ColorValue.background,
@@ -24,13 +25,13 @@ class ErrorPage extends StatelessWidget {
               Text(
                 lang.error,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.deepPurple),
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(color: theme.primaryColor),
               ),
               const SizedBox(height: 8.0),
               Text(
                 errorText,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: theme.primaryColor),
               ),
               const SizedBox(height: 8.0),
               ElevatedButton(

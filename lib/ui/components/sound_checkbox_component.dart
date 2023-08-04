@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/services/database.dart';
 import 'package:provider/provider.dart';
 
 class SoundCheckboxComponent extends StatefulWidget {
-  const SoundCheckboxComponent({super.key});
+  const SoundCheckboxComponent({super.key, required this.isDark});
+
+  final bool isDark;
 
   @override
   State<SoundCheckboxComponent> createState() => _SoundCheckboxComponentState();
@@ -17,6 +20,7 @@ class _SoundCheckboxComponentState extends State<SoundCheckboxComponent> {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    final theme = Theme.of(context);
     Database database = context.watch();
 
     return Row(
@@ -34,7 +38,10 @@ class _SoundCheckboxComponentState extends State<SoundCheckboxComponent> {
           },
           child: Text(
             lang.music,
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: widget.isDark ? theme.primaryColor : ColorValue.lightText),
             maxLines: 1,
             overflow: TextOverflow.fade,
           ),
@@ -51,7 +58,10 @@ class _SoundCheckboxComponentState extends State<SoundCheckboxComponent> {
           },
           child: Text(
             lang.sound,
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: widget.isDark ? theme.primaryColor : ColorValue.lightText),
             maxLines: 1,
             overflow: TextOverflow.fade,
           ),

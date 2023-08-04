@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 
 class GameOverDialog extends StatefulWidget {
@@ -17,13 +18,15 @@ class _GameOverDialogState extends State<GameOverDialog> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final lang = S.of(context);
+      final theme = Theme.of(context);
+
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: Text(
             lang.gameOver,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.deepPurple),
+            style: TextStyle(color: theme.primaryColor),
           ),
           actionsAlignment: MainAxisAlignment.spaceBetween,
           actions: [

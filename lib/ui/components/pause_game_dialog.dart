@@ -11,6 +11,7 @@ class PauseGameDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    final theme = Theme.of(context);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -18,17 +19,17 @@ class PauseGameDialog extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: ColorValue.background,
+            color: theme.secondaryHeaderColor,
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
-            child: SoundCheckboxComponent(),
+            child: SoundCheckboxComponent(isDark: true),
           ),
         ),
         AlertDialog(
-          title: Text(lang.pause, style: const TextStyle(color: Colors.deepPurple)),
-          content: Text(lang.interruptGameNotSaved, style: const TextStyle(color: Colors.deepPurple)),
+          title: Text(lang.pause, style: TextStyle(color: theme.primaryColor)),
+          content: Text(lang.interruptGameNotSaved, style: TextStyle(color: theme.primaryColor)),
           actionsAlignment: MainAxisAlignment.spaceBetween,
           actions: [
             ElevatedButton(

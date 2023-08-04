@@ -19,12 +19,12 @@ class _LevelSelectionPageState extends State<LevelSelectionPage> {
     return Scaffold(
       backgroundColor: ColorValue.background,
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.deepPurple,
+        iconTheme: IconThemeData(
+          color: ColorValue.lightText,
         ),
         title: Text(
           lang.levelSelection,
-          style: const TextStyle(color: Colors.deepPurple),
+          style: TextStyle(color: ColorValue.lightText),
           maxLines: 1,
           overflow: TextOverflow.fade,
         ),

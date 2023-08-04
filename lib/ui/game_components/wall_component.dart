@@ -24,7 +24,7 @@ class WallComponent extends BodyComponent {
         _height = height,
         super(
           children: children,
-          paint: color ?? BasicPalette.brown.paint(),
+          paint: color ?? BasicPalette.darkBlue.paint(),
           priority: priority,
         );
 

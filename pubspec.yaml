@@ -79,6 +79,7 @@ flutter:
     - assets/animations/
     - assets/audio/
     - assets/icons/
+    - assets/images/
     - assets/images/balls/
     - assets/images/bricks/
     - assets/images/coin/

@@ -1,6 +1,8 @@
 class ImageName {
   ImageName._();
 
+  static const String background = "assets/images/background.png";
+
   static const String blueBall = "balls/blue_ball.png";
   static const String bowlingBall = "balls/bowling_ball.png";
   static const String colorfulBall = "balls/colorful_ball.png";

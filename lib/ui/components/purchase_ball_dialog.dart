@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 
 class PurchaseBallDialog extends StatelessWidget {
@@ -9,14 +10,15 @@ class PurchaseBallDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    final theme = Theme.of(context);
 
     return AlertDialog(
       title: Text(
         lang.buyBall,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.deepPurple),
+        style: TextStyle(color: theme.primaryColor),
       ),
-      content: Text(lang.buyBallForAmount(coins), style: const TextStyle(color: Colors.deepPurple)),
+      content: Text(lang.buyBallForAmount(coins), style: TextStyle(color: theme.primaryColor)),
       actionsAlignment: MainAxisAlignment.spaceBetween,
       actions: [
         ElevatedButton(

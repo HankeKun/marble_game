@@ -13,16 +13,17 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final lang = S.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       backgroundColor: ColorValue.background,
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.deepPurple,
+        iconTheme: IconThemeData(
+          color: ColorValue.lightText,
         ),
         title: Text(
           lang.about,
-          style: const TextStyle(color: Colors.deepPurple),
+          style: TextStyle(color: ColorValue.lightText),
           maxLines: 1,
           overflow: TextOverflow.fade,
         ),
@@ -43,7 +44,7 @@ class _AboutPageState extends State<AboutPage> {
                     Text(
                       lang.developer,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: theme.primaryColor),
                       maxLines: 1,
                       overflow: TextOverflow.fade,
                     ),
@@ -51,18 +52,18 @@ class _AboutPageState extends State<AboutPage> {
                     Text(
                       "${lang.development}: ${lang.severin}",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: theme.primaryColor),
                     ),
                     Text(
                       "${lang.design}: ${lang.edonisa}",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: theme.primaryColor),
                     ),
                     const SizedBox(height: 16.0),
                     Text(
                       lang.description,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: theme.primaryColor),
                       maxLines: 1,
                       overflow: TextOverflow.fade,
                     ),
@@ -70,13 +71,13 @@ class _AboutPageState extends State<AboutPage> {
                     Text(
                       lang.descriptionText,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: theme.primaryColor),
                     ),
                     const SizedBox(height: 16.0),
                     Text(
                       lang.music,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: theme.primaryColor),
                       maxLines: 1,
                       overflow: TextOverflow.fade,
                     ),
@@ -84,7 +85,7 @@ class _AboutPageState extends State<AboutPage> {
                     Text(
                       "${lang.backgroundMusic}: ${lang.backgroundMusicTitle}",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.deepPurple),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: theme.primaryColor),
                     ),
                   ],
                 ),
