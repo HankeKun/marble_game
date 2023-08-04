@@ -65,11 +65,13 @@ class BallShopComponent extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          EBallString.getBallPrice(ball).toString(),
-                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: ColorValue.background),
-                          maxLines: 1,
-                          overflow: TextOverflow.fade,
+                        Flexible(
+                          child: Text(
+                            EBallString.getBallPrice(ball).toString(),
+                            style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: ColorValue.background),
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                          ),
                         ),
                         const SizedBox(width: 4.0),
                         Image.asset(
