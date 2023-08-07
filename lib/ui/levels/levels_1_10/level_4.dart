@@ -21,7 +21,6 @@ class Level4 extends Level {
         width: size.y * 0.06,
         height: size.y * 0.7,
         centerPosition: Vector2(size.x / 2 + 0.2 * size.x, size.y / 2),
-        angleOfWall: 0,
       ),
       CoinComponent(
         position: Vector2(size.x - size.x * 0.18, size.y * 0.11),

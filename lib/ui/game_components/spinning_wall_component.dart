@@ -9,19 +9,16 @@ class SpinningWallComponent extends BodyComponent {
   final double _height;
   final double _width;
   final Vector2 _centerPosition;
-  final double _angleOfWall;
-  late double _angle = _angleOfWall;
+  double _angleOfWall = 0;
 
   SpinningWallComponent({
     required double width,
     required double height,
     required Vector2 centerPosition,
-    required double angleOfWall,
     Iterable<Component>? children,
     Paint? color,
     int? priority,
-  })  : _angleOfWall = angleOfWall,
-        _centerPosition = centerPosition,
+  })  : _centerPosition = centerPosition,
         _width = width,
         _height = height,
         super(
@@ -34,9 +31,9 @@ class SpinningWallComponent extends BodyComponent {
   void update(double dt) {
     super.update(dt);
 
-    _angle += 2.5 * dt;
-    _angle %= 2 * pi;
-    body.setTransform(_centerPosition, -_angle);
+    _angleOfWall += 2.5 * dt;
+    _angleOfWall %= 2 * pi;
+    body.setTransform(_centerPosition, -_angleOfWall);
   }
 
   @override
