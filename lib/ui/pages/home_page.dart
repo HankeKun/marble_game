@@ -34,14 +34,14 @@ class _HomePageState extends State<HomePage> {
     final lang = S.of(context);
 
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(ImageName.background),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(ImageName.background),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
