@@ -1,6 +1,8 @@
 import 'package:flame/game.dart';
 import 'package:marble_game/ui/game_components/ball_component.dart';
+import 'package:marble_game/ui/game_components/coin_component.dart';
 import 'package:marble_game/ui/game_components/goal_component.dart';
+import 'package:marble_game/ui/game_components/spike_ball_component.dart';
 import 'package:marble_game/ui/levels/level.dart';
 
 class Level11 extends Level {
@@ -14,6 +16,29 @@ class Level11 extends Level {
       ),
       BallComponent(
         startPosition: Vector2(size.y * 0.09, size.y - size.y * 0.09),
+      ),
+      SpikeBallComponent(
+        position: Vector2(size.x * 0.3, size.y * 0.3),
+        radius: size.y * 0.10,
+      ),
+      SpikeBallComponent(
+        position: Vector2(size.x * 0.7, size.y * 0.7),
+        radius: size.y * 0.10,
+      ),
+      SpikeBallComponent(
+        position: Vector2(size.x * 0.4, size.y * 0.8),
+        radius: size.y * 0.10,
+      ),
+      SpikeBallComponent(
+        position: Vector2(size.x * 0.6, size.y * 0.2),
+        radius: size.y * 0.10,
+      ),
+      SpikeBallComponent(
+        position: Vector2(size.x * 0.92, size.y * 0.8),
+        radius: size.y * 0.10,
+      ),
+      CoinComponent(
+        position: Vector2(size.x * 0.8, size.y * 0.9),
       ),
     ]);
   }
