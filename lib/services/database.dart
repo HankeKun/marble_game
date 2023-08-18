@@ -24,10 +24,7 @@ class Database with ChangeNotifier {
 
   final String _music = "music";
   final String _sound = "sound";
-  final String _level = "level";
-  final String _coins = "coins";
   final String _currentBall = "current-ball";
-  final String _purchasedBalls = "purchased-balls";
 
   bool get getMusicBool => _prefs.getBool(_music) ?? true;
 
@@ -52,23 +49,19 @@ class Database with ChangeNotifier {
     }
   }
 
-  int get getActualLevel => _prefs.getInt(_level) ?? 1;
+  int get getActualLevel => 100;
 
   Future<void> setActualLevel(int level) async {
-    if (level <= getActualLevel) return;
-    await _prefs.setInt(_level, level);
     notifyListeners();
   }
 
-  int get getCoinsCount => _prefs.getInt(_coins) ?? 0;
+  int get getCoinsCount => 5000;
 
   Future<void> countCoinsUp() async {
-    await _prefs.setInt(_coins, getCoinsCount + 1);
     notifyListeners();
   }
 
   Future<void> setCoinsCount(int coins) async {
-    await _prefs.setInt(_coins, coins);
     notifyListeners();
   }
 
@@ -100,27 +93,10 @@ class Database with ChangeNotifier {
   }
 
   List<EBall> get purchasedBalls {
-    List<String> purchasedBallsString = _prefs.getStringList(_purchasedBalls) ?? [];
-    List<EBall> purchasedBalls = purchasedBallsString.map((ball) {
-      return EBall.values.firstWhere((element) => element.name == ball);
-    }).toList();
-    purchasedBalls.addAll([EBall.purpleBall, EBall.redBall, EBall.blueBall, EBall.colorfulBall]);
-    return purchasedBalls;
+    return EBall.values;
   }
 
   Future<void> purchaseBall(EBall ball) async {
-    try {
-      if (getCoinsCount < EBallString.getBallPrice(ball)) {
-        _snackBar.showSnackbar(S.current.ballToExpensive);
-        return;
-      }
-      List<String> purchasedBalls = _prefs.getStringList(_purchasedBalls) ?? [];
-      purchasedBalls.add(ball.name);
-      await _prefs.setStringList(_purchasedBalls, purchasedBalls);
-      await setCoinsCount(getCoinsCount - EBallString.getBallPrice(ball));
-      notifyListeners();
-    } catch (e) {
-      _snackBar.showSnackbar(S.current.errorPurchasingBall);
-    }
+    notifyListeners();
   }
 }
