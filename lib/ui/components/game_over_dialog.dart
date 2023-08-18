@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 
 class GameOverDialog extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/ui/components/sound_checkbox_component.dart';
 

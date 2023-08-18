@@ -1,7 +1,6 @@
 import 'package:flame_lottie/flame_lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:marble_game/constants/color_value.dart';
 import 'package:marble_game/constants/image_name.dart';
 import 'package:marble_game/generated/l10n.dart';
 import 'package:marble_game/services/database.dart';
